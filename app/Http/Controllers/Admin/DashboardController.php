@@ -13,9 +13,23 @@ class DashboardController extends Controller
         $users = User::all();
         return view('admin.register')->with('users', $users);
     }
-    public function registeredit(Request $request, $id)
+    public function registeredit($id)
     {
-        $id = User::findOrFail($id);
-        return view('admin.register-edit');
+        $users = User::findOrFail($id);
+        return view('admin.register-edit', ['users' => $users]);
+    }
+    public function registerupdate(Request $request, $id)
+    {
+        $users = User::find($id);
+        $users->name = $request->input('username');
+        $users->usertype = $request->input('usertype');
+        $users->save();
+        return redirect('/role-register')->with("status", "vos informations sont enregistré");
+    }
+    public function registerdelete(Request $request, $id)
+    {
+        $users = User::find($id);
+        $users->delete();
+        return redirect('/role-register')->with("danger", "vos informations sont supprimé");
     }
 }

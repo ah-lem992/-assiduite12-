@@ -10,6 +10,11 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">les comptes enregistrés </h4>
+                  @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                   <p class="card-category"> Here is a subtitle for this table</p>
                 </div>
                 <div class="card-body">
@@ -61,7 +66,7 @@
                             <a href="/role-edit/{{$user->id}}" class="btn btn-primary">modifier</a>
                           </td>
                           <td>
-                            <a href="#" class="btn btn-danger">supprimer</a>
+                            <a href="/role-delete/{{$user->id}}" class="btn btn-danger">supprimer</a>
                           </td>
                         </tr>
 
