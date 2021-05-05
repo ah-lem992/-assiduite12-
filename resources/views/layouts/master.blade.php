@@ -58,9 +58,9 @@
               </a>
             </li></li>
             <li class="nav-item">
-              <a class="nav-link" href="icons.html">
+              <a class="nav-link" href="/promo">
                 <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Icons</span>
+                <span class="nav-link-text">Promo</span>
               </a>
             </li>
             <li class="nav-item">

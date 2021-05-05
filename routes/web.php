@@ -29,4 +29,11 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/role-edit/{id}', 'Admin\DashboardController@registeredit');
     Route::put('/role-register-update/{id}', 'Admin\DashboardController@registerupdate');
     Route::get('/role-delete/{id}', 'Admin\DashboardController@registerdelete');
+    #route pour promo
+    Route::get('/promo', 'Admin\PromoController@index');
+    Route::get('/promo/create', 'Admin\PromoController@create');
+    Route::post('/promo', 'Admin\PromoController@store');
+    Route::get('/promo/{id}/edit', 'Admin\PromoController@edit');
+    Route::put('/promo/{id}', 'Admin\PromoController@update');/*
+    //Route::get('promo/{id}', 'PromoController@destroy');*/
 });
