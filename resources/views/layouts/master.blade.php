@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Argon CSS -->
   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+ <!-- <link rel="stylesheet" href="../assets/css/dataTables.min.css" type="text/css">-->
 </head>
 
 <body>
@@ -64,9 +65,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="map.html">
+              <a class="nav-link" href="/prof">
                 <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Google</span>
+                <span class="nav-link-text">Prof</span>
               </a>
             </li>
             <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
@@ -80,7 +81,7 @@
             <li class="nav-item">
               <a class="nav-link " href="tables.html">
                 <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text">Tables</span>
+                <span class="nav-link-text">cours</span>
               </a>
             </li>
             <li class="nav-item">
@@ -152,13 +153,14 @@
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/search')}}" method="GET">
+             {{ csrf_field() }}
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-                <input class="form-control" placeholder="Search" type="text">
+                <input class="form-control" name="search" placeholder="chercher " type="text">
               </div>
             </div>
             <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -411,8 +413,8 @@
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Tables</li>
+                  <li class="breadcrumb-item"><a href="{{ url('/promo')}}">Promo</a></li>
+                  <!--<li class="breadcrumb-item active" aria-current="page">Tables</li>-->
                 </ol>
               </nav>
             </div>
@@ -466,6 +468,7 @@
   <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
   <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
   <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <!--<script src="../assets/js/dataTables.min.js"></script>-->
   <!-- Argon JS -->
   <script src="../assets/js/argon.js?v=1.2.0"></script>
   @yield('scripts')

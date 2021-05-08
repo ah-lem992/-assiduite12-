@@ -11,6 +11,10 @@
 |
 */
 
+use App\Promo;
+//use Symfony\Component\Console\Input\Input;
+use Illuminate\Support\Facades\Input;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,10 +34,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::put('/role-register-update/{id}', 'Admin\DashboardController@registerupdate');
     Route::get('/role-delete/{id}', 'Admin\DashboardController@registerdelete');
     #route pour promo
+
     Route::get('/promo', 'Admin\PromoController@index');
+    Route::get('/search', 'Admin\PromoController@search')->name('search');
     Route::get('/promo/create', 'Admin\PromoController@create');
     Route::post('/promo', 'Admin\PromoController@store');
-    Route::get('/promo/{id}/edit', 'Admin\PromoController@edit');
-    Route::put('/promo/{id}', 'Admin\PromoController@update');/*
-    //Route::get('promo/{id}', 'PromoController@destroy');*/
+    Route::get('/promo/{id}', 'Admin\PromoController@edit');
+    Route::put('/promo/{id}', 'Admin\PromoController@update');
+    Route::get('promo-delete/{id}', 'Admin\PromoController@destroy');
+    //pour les prof
+    Route::get('/prof', 'Admin\ProfController@index');
+    Route::get('/prof/create', 'Admin\ProfController@create');
+    Route::post('/prof', 'Admin\ProfController@store');
 });

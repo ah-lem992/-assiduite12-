@@ -9,35 +9,44 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Les promos
-                </div>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                    <tr>
-                        <th>id </th>
-                        <th>Annee </th>
-                        <th>Editer</th>
-                        <th>supprimer</th>
-                    </tr>
-           <form  action="{{url('/promo'.$promo->id)}}" method="post"  >
+                  <h4 class="card-title ">Les promos</h4>
 
-                {{ csrf_field() }}
-               <input type="hidden" name="_method" value="PUT">
-                <br/>
-                <div class="form-group">
-                    <label for="">Année </label>
-                    <input type="text" name="annee" class="form-control" value="{{$promo-> annee}}" value="{{ old('annee') }}">
-                </div>
-                <br/>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                <body>
 
-                   <div class="form-group">
+                    <form  action="{{url('promo/'.$promo->id)}}" method="post"  >
 
-                    <input type="submit"  class="form-control btn btn-primary" value="modifier  ">
-                </div>
-            </form>
-        -->
+                        {{ csrf_field() }}
+                       <input type="hidden" name="_method" value="PUT">
+                        <br/>
+                        <div class="form-group">
+                            <label for="">Année </label>
+                            <input type="text" name="annee" class="form-control" value="{{$promo-> annee}}" value="{{ old('annee') }}">
+                        </div>
+                        <br/>
+
+                           <div class="form-group">
+
+                            <input type="submit"  class="form-control btn btn-primary" value="modifier  ">
+                        </div>
+                    </form>
+
+                </body>
+            </table>
+
+                  </div>
+
         </div>
     </div>
 </div>
+            </div>
+    </div>
+</div>
+
+
+
+@endsection
+@section('scripts')
+@endsection
