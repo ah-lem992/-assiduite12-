@@ -27,7 +27,7 @@ class PromoController extends Controller
         $promo->annee = $request->input('annee');
         $promo->save();
         // session()->flash('success', 'année  a étè bien crée');
-        return redirect('promo')->with("status", "l'annee a etais crée ");;
+        return redirect('promo')->with("status", "l'annee a etais crée ");
     }
     public function edit($id)
     {

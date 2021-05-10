@@ -42,8 +42,17 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/promo/{id}', 'Admin\PromoController@edit');
     Route::put('/promo/{id}', 'Admin\PromoController@update');
     Route::get('promo-delete/{id}', 'Admin\PromoController@destroy');
-    //pour les prof
+    /*pour les prof
     Route::get('/prof', 'Admin\ProfController@index');
     Route::get('/prof/create', 'Admin\ProfController@create');
     Route::post('/prof', 'Admin\ProfController@store');
+    */
+    //route pour les groupe
+    Route::get('/groupe', 'Admin\GroupeController@index');
+    Route::get('/search_groupe', 'Admin\GroupeController@search')->name('search');
+    Route::get('/groupe/create', 'Admin\GroupeController@create');
+    Route::post('/groupe', 'Admin\GroupeController@store');
+    Route::get('/groupe/{groupe_id}', 'Admin\GroupeController@edit');
+    Route::put('/groupe/{groupe_id}', 'Admin\GroupeController@update');
+    Route::get('groupe-delete/{groupe_id}', 'Admin\GroupeController@destroy');
 });

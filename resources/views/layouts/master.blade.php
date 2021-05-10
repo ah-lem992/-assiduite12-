@@ -65,7 +65,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/prof">
+                <a class="nav-link" href="/groupe">
+                  <i class=""></i>
+                  <span class="nav-link-text">Groupe</span>
+                </a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <span class="nav-link-text">Prof</span>
               </a>

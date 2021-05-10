@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePromosTable extends Migration
+class AddColumnDeletedAtGroupes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePromosTable extends Migration
      */
     public function up()
     {
-        Schema::create('promos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->Integer('annee');
-            $table->timestamps();
+        Schema::table('groupes', function (Blueprint $table) {
+            $table->datetime('deleted_at')->nullable();
+            //
         });
     }
 
@@ -27,6 +26,9 @@ class CreatePromosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promos');
+        Schema::table('groupes', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
+            //
+        });
     }
 }
