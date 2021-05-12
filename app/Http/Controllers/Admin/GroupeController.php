@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Groupe;
+use App\Promo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,28 +12,34 @@ class GroupeController extends Controller
 {
     public function index()
     {
-        $listgroupe = Groupe::all();
+        $listgroupe = Groupe::with('promo')->get();
         return view('admin.groupe.index', ['groupes' => $listgroupe]);
     }
     public function create()
     {
-        return view('admin\groupe.create');
+        $promos = Promo::all();
+        return view('admin\groupe.create', compact('promos'));
     }
     public function store(Request $request)
     {
-        $groupe = new Groupe();
+        $groupe = $request->all();
+        Groupe::create($groupe);
+        return redirect('groupe')->with("status", "l'annee a etais crée ");
+
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
-        $groupe->groupe = $request->input('groupe');
+        /* $groupe->groupe = $request->input('groupe');
+        $groupe->promo_id = $request->input('select');
         $groupe->save();
         // session()->flash('success', 'année  a étè bien crée');
-        return redirect('groupe')->with("status", "l'annee a etais crée ");
+        return redirect('groupe')->with("status", "l'annee a etais crée ");*/
     }
 
 
     public function edit($groupe_id)
     {
+        $promos = Promo::all();
         $groupe = Groupe::find($groupe_id);
-        return view('admin.groupe.edit')->with('groupe', $groupe);
+        return view('admin.groupe.edit', compact('groupe', 'promos'));
     }
 
 

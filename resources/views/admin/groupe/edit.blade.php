@@ -22,10 +22,24 @@
                        <input type="hidden" name="_method" value="PUT">
                         <br/>
                         <div class="form-group">
+                            <label for="exampleFormControlInput1">Groupe</label>
+                            <input type="text" name="groupe" class="form-control" id="exampleFormControlInput1" value="{{$groupe-> groupe}}" value="{{ old('groupe') }}" placeholder="taper le groupe">
+                          </div>
+                       <!-- <div class="form-group">
                             <label for="">groupe </label>
                             <input type="text" name="groupe" class="form-control" value="{{$groupe-> groupe}}" value="{{ old('groupe') }}">
-                        </div>
+                        </div>-->
                         <br/>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" >selectionez promo</label>
+                            <select class="form-control" name="promo_id" id="exampleFormControlSelect1">
+                                @foreach ( $promos as $promo )
+
+                              <option value="{{$promo->id}}">{{$promo->annee}}</option>
+                                 @endforeach
+                            </select>
+                          </div>
+
 
                            <div class="form-group">
 

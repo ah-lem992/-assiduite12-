@@ -61,6 +61,7 @@
                    <tr>
                        <th>id </th>
                        <th>groupe </th>
+                       <th>promo </th>
                        <th>Editer</th>
                        <th>supprimer</th>
                    </tr>
@@ -72,6 +73,7 @@
 
                     <td> {{$groupe -> groupe_id}}</td>
                     <td>{{$groupe -> groupe}}</td>
+                    <td>{{$groupe->promo->annee}}</td>
                             <td>
                              <a href="{{ url('groupe/'.$groupe->groupe_id) }}" class="btn btn-primary">editer </a>
                             </td>
