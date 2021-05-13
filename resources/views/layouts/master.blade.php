@@ -73,7 +73,7 @@
             <li class="nav-item">
               <a class="nav-link" href="">
                 <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Prof</span>
+                <span class="nav-link-text"></span>
               </a>
             </li>
             <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
@@ -419,7 +419,7 @@
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="{{ url('/promo')}}">Promo</a></li>
+                  <li class="breadcrumb-item"><a href="{{ url('/promo')}}"></a></li>
                   <!--<li class="breadcrumb-item active" aria-current="page">Tables</li>-->
                 </ol>
               </nav>

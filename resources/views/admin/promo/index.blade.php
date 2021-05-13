@@ -6,25 +6,34 @@
 @section('content')
 <div class="container-fluid">
     <!--deleting Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+    <div class="modal fade" id="deletemodalpop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Confirmation de suppression</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+                <form action="" id="delete-model_form" method="post ">
+
+                        {{ csrf_field() }}
+
+
+                    <div class="modal-body">
+                        <input type="hidden" id="id_delete">
+                        <h4> vous etes sur de cette suppresion</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuuler</button>
+                        <button type="submit" class="btn btn-danger">oui , je confirme</button>
+                    </div>
+                </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   <!--end modal  -->
     <div class="row">
             <div class="col-md-12">
@@ -56,10 +65,8 @@
                             </td>
                             <!--  <a href="{{ url('promo/create') }}" class="btn btn-success"> nouvelle année</a>-->
                             <td>
-                                <form action="{{ url('promo-delete/'.$promo->id ) }} " method="post ">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                               <button type="submit" class="btn btn-danger">Supprimer</button>
+
+                               <button type="submit" class="btn btn-danger deletebtn">Supprimer</button>
 
                                  </form>
                             </td>
@@ -82,7 +89,25 @@
 @section('scripts')
 <script>
     $(document).ready( function () {
-    $('#dataTable').DataTable();
-        } );
+  //  $('#dataTable').DataTable();
+
+
+    $('#dataTable').on('click','.deletebtn',function(){
+        $tr =$(this).closest('tr');
+        var data =$tr.children("td").map(function(){
+            return $(this).text();
+
+        }).get();
+        //console$()
+        $('#id_delete').val(data[0]);
+        $('#delete-model_form').attr('action','/promo-delete/'+data[0]);
+        $('#deletemodalpop').modal('show');
+
+
+
+
+    });
+    } );
 </script>
 @endsection
+

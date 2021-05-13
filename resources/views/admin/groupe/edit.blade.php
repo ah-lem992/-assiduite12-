@@ -32,7 +32,7 @@
                         <br/>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" >selectionez promo</label>
-                            <select class="form-control" name="promo_id" id="exampleFormControlSelect1">
+                            <select class="form-control" name="promo_id" value="{{ old('promo_id') }}" id="exampleFormControlSelect1">
                                 @foreach ( $promos as $promo )
 
                               <option value="{{$promo->id}}">{{$promo->annee}}</option>
