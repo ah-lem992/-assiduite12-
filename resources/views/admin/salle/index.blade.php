@@ -39,10 +39,13 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Les promos
-                               <a href="{{ url('promo/create') }}" class="btn btn-success"> nouvelle année</a>
-                    </h4>
-                    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/promo_search
+                  <h4 class="card-title ">Les salles
+                    <div class="col-lg-2 col-5 text-right">
+                        <a href="{{ url('salle/create') }}" class="btn btn-sm btn-success">New</a>
+                    </div>
+                <br/>
+                    <!-- search form -->
+                    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/salle_search
                     ')}}" method="GET">
                             {{ csrf_field() }}
                            <div class="form-group mb-0">
@@ -50,7 +53,7 @@
                                <div class="input-group-prepend">
                                  <span class="input-group-text"><i class="fas fa-search"></i></span>
                                </div>
-                               <input class="form-control" name="search" placeholder="chercher " type="text">
+                               <input class="form-control" name="search" placeholder="tapez le num de salle " type="text">
                              </div>
                            </div>
                            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -65,20 +68,20 @@
                       <thead class=" text-primary">
                    <tr>
                        <th>id </th>
-                       <th>Annee </th>
+                       <th>Num_salle </th>
                        <th>Editer</th>
                        <th>supprimer</th>
                    </tr>
                 <body>
-                    @foreach($promos as $promo)
+                    @foreach($salles as $salle)
                 <tr>
-                            <td>{{$promo ->id}} <br></td>
-                            <td>{{$promo ->annee}}<br></td>
+                            <td>{{$salle ->salle_id}} <br></td>
+                            <td>{{$salle ->num}}<br></td>
 
                             <td>
-                             <a href="{{ url('promo/'.$promo->id) }}" class="btn btn-primary">editer </a>
+                             <a href="{{ url('salle/'.$salle->salle_id) }}" class="btn btn-primary">editer </a>
                             </td>
-                            <!--  <a href="{{ url('promo/create') }}" class="btn btn-success"> nouvelle année</a>-->
+                            <!--  <a href="{{ url('salle/create') }}" class="btn btn-success"> nouvelle année</a>-->
                             <td>
 
                                <button type="submit" class="btn btn-danger deletebtn">Supprimer</button>
@@ -97,8 +100,8 @@
     </div>
 </div>
 
+{{$salles->links()}}
 
-{{$promos->links()}}
 
 @endsection
 @section('scripts')
@@ -115,7 +118,7 @@
         }).get();
         //console$()
         $('#id_delete').val(data[0]);
-        $('#delete-model_form').attr('action','/promo-delete/'+data[0]);
+        $('#delete-model_form').attr('action','/salle-delete/'+data[0]);
         $('#deletemodalpop').modal('show');
 
 

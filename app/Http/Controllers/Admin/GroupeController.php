@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Admin;
 use App\Groupe;
 use App\Promo;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\groupeRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class GroupeController extends Controller
 {
     public function index()
+
     {
+       // $listgroupe = DB::table('groupes')->paginate(3);
         $listgroupe = Groupe::with('promo')->get();
         return view('admin.groupe.index', ['groupes' => $listgroupe]);
     }
@@ -20,7 +23,7 @@ class GroupeController extends Controller
         $promos = Promo::all();
         return view('admin\groupe.create', compact('promos'));
     }
-    public function store(Request $request)
+    public function store(groupeRequest $request)
     {
         $groupe = $request->all();
         Groupe::create($groupe);
@@ -43,7 +46,7 @@ class GroupeController extends Controller
     }
 
 
-    public function update(Request $request, $groupe_id)
+    public function update(groupeRequest $request, $groupe_id)
     {
         $groupe = Groupe::find($groupe_id);
         $groupe->groupe = $request->input('groupe');

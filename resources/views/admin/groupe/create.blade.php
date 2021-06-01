@@ -10,6 +10,7 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Ajouter un nouveau groupe
+
 <form action="{{url('/groupe')}}" method="post">
     @csrf
     <div class="form-group">

@@ -5,7 +5,8 @@
 
 @section('content')
 <div class="container-fluid">
-    <!--deleting Modal -->
+
+       <!--deleting Modal -->
 <div class="modal fade" id="deletemodalpop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -39,16 +40,11 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title  ">Les Groupes
+                  <h4 class="card-title ">Les professeurs
+                               <a href="{{ url('prof/create') }}" class="btn btn-success"> nouveau prof</a>
                     </h4>
-
-
-                    <a href="{{ url('groupe/create') }}" class="btn btn-success"> nouveau groupe</a>
-
-
-
-                       <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/search_groupe')}}" method="GET">
+                      <!-- Search form -->
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/prof_search')}}" method="GET">
             {{ csrf_field() }}
            <div class="form-group mb-0">
              <div class="input-group input-group-alternative input-group-merge">
@@ -62,7 +58,6 @@
              <span aria-hidden="true">×</span>
            </button>
          </form>
-                    </div>
                  </div>
                 </div>
                 <div class="card-body">
@@ -71,30 +66,29 @@
                       <thead class=" text-primary">
                    <tr>
                        <th>id </th>
-                       <th>groupe </th>
-                       <th>promo </th>
+                       <th>nom </th>
+                       <th>grade </th>
+                       <th>module </th>
                        <th>Editer</th>
                        <th>supprimer</th>
                    </tr>
                 <body>
-
-                    @foreach($groupes as $groupe )
+                    @foreach($profs as $prof)
 
                 <tr>
+                            <td>{{$prof->prof_id}}<br></td>
+                            <td>{{$prof->nom}}<br></td>
+                            <td>{{$prof->grade}}<br></td>
+                            <td>cour</td>
 
-                    <td> {{$groupe -> groupe_id}}</td>
-                    <td>{{$groupe -> groupe}}</td>
-                    <td>{{$groupe->promo->annee}}</td>
                             <td>
-                             <a href="{{ url('groupe/'.$groupe->groupe_id) }}" class="btn btn-primary">editer </a>
+                                <a href="{{ url('prof/'.$prof->prof_id) }}" class="btn btn-primary">editer </a>
                             </td>
-                            <!--  <a href="{{ url('') }}" class="btn btn-success"> nouvelle année</a>-->
+                            <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
                             <td>
 
                                 <a href="javascript::void(0)" class="btn btn-danger deletebtn">supprimer </a>
-
-
-
+                                 </form>
                             </td>
                  </tr>
                  @endforeach
@@ -109,6 +103,7 @@
     </div>
 </div>
 
+{{$profs->links()}}
 
 
 @endsection
@@ -126,7 +121,7 @@
         }).get();
         //console$()
         $('#id_delete').val(data[0]);
-        $('#delete-model_form').attr('action','/groupe-delete/'+data[0]);
+        $('#delete-model_form').attr('action','/prof-delete/'+data[0]);
         $('#deletemodalpop').modal('show');
 
 
@@ -134,5 +129,6 @@
 
     });
     } );
-</script>
+    </script>
 @endsection
+

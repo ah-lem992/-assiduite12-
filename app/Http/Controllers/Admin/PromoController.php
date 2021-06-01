@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Promo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\promoRequest;
 
 
 class PromoController extends Controller
 {
     public function index()
     {
-        $listpromo = DB::table('promos')->paginate(6);
+        $listpromo = DB::table('promos')->paginate(3);
         //$listpromo = Promo::all();
         return view('admin\promo.index', ['promos' => $listpromo]);
     }
@@ -20,7 +21,7 @@ class PromoController extends Controller
     {
         return view('admin\promo.create');
     }
-    public function store(Request $request)
+    public function store(promoRequest $request)
     {
         $promo = new Promo();
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
@@ -34,7 +35,7 @@ class PromoController extends Controller
         $promo = Promo::find($id);
         return view('admin.promo.edit')->with('promo', $promo);
     }
-    public function update(Request $request, $id)
+    public function update(promoRequest $request, $id)
     {
         $promo = Promo::find($id);
         $promo->annee = $request->input('annee');

@@ -4,32 +4,29 @@
 @endsection
 
 @section('content')
-
 <div class="container-fluid">
     <div class="row">
-
             <div class="col-md-12">
               <div class="card">
-
                 <div class="card-header card-header-primary">
+                  <h4 class="card-title ">ajouter Proffeseur
 
-                  <h4 class="card-title ">ajoute
+            <form  action="{{url('/prof')}}" method="post" >
+               @csrf
 
-            <form  action="{{url('/promo')}}" method="post" >
-                {{ csrf_field() }}
-
-                <div class="form-group" >
-                    <label >Année :</label>
-                    <input type="text" name="annee" class="form-control">
-                    @if($errors->get('annee'))
-                    @foreach ($errors ->get('annee') as $message )
-                        <li> {{$message}}</li>
-                    @endforeach
-                    @endif
+                <div class="form-group">
+                    <label >Nom de prof :</label>
+                    <input type="text" name="nom" class="form-control">
 
 
                 </div>
                    <br/>
+                   <div class="form-group">
+                    <label >Grade de prof :</label>
+                    <input type="text" name="grade" class="form-control">
+
+
+                </div>
                    <div class="form-group">
 
                     <input type="submit"  class="form-control btn btn-primary" value="Enregistrer ">

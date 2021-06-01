@@ -55,4 +55,33 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/groupe/{groupe_id}', 'Admin\GroupeController@edit');
     Route::put('/groupe/{groupe_id}', 'Admin\GroupeController@update');
     Route::get('groupe-delete/{groupe_id}', 'Admin\GroupeController@destroy');
+
+    //routes pour les prof
+    Route::get('/prof', 'Admin\ProfController@index');
+    Route::get('/prof_search', 'Admin\ProfController@search')->name('search');
+    Route::get('/prof/create', 'Admin\ProfController@create');
+    Route::post('/prof', 'Admin\ProfController@store');
+    Route::get('/prof/{prof_id}', 'Admin\ProfController@edit');
+    Route::put('/prof/{prof_id}', 'Admin\ProfController@update');
+    Route::get('prof-delete/{prof_id}', 'Admin\ProfController@destroy');
+
+    //route pour les cours
+    Route::get('/cour', 'Admin\CourController@index');
+    Route::get('/cour_search', 'Admin\CourController@search')->name('search');
+    Route::get('/cour/create', 'Admin\CourController@create');
+    Route::post('/cour', 'Admin\CourController@store');
+    Route::get('/cour/{cour_id}', 'Admin\CourController@edit');
+    Route::put('/cour/{cour_id}', 'Admin\CourController@update');
+    Route::get('cour-delete/{cour_id}', 'Admin\CourController@destroy');
+
+    //route pour les salles
+    Route::get('/salle', 'Admin\SalleController@index');
+    Route::get('/salle_search', 'Admin\SalleController@search')->name('search');
+    Route::get('/salle/create', 'Admin\SalleController@create');
+    Route::post('/salle', 'Admin\SalleController@store');
+    Route::get('/salle/{salle_id}', 'Admin\SalleController@edit');
+    Route::put('/salle/{salle_id}', 'Admin\SalleController@update');
+    Route::get('salle-delete/{salle_id}', 'Admin\SalleController@destroy');
+
+
 });

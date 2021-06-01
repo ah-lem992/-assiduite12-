@@ -43,7 +43,7 @@
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
-          <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+          Admin
         </a>
       </div>
       <div class="navbar-inner">
@@ -60,36 +60,44 @@
             </li></li>
             <li class="nav-item">
               <a class="nav-link" href="/promo">
-                <i class="ni ni-planet text-orange"></i>
+                <i class="" aria-hidden="true"></i>
+
                 <span class="nav-link-text">Promo</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="{{'groupe' ==request()->path() ?'active': ''}}">
                 <a class="nav-link" href="/groupe">
-                  <i class=""></i>
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
                   <span class="nav-link-text">Groupe</span>
                 </a>
               </li>
             <li class="nav-item">
-              <a class="nav-link" href="">
-                <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text"></span>
+              <a class="nav-link" href="/prof">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span class="nav-link-text">Les proffeseurs</span>
+              </a>
+            </li>
+
+            <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
+            <li class="nav-item">
+              <a class="nav-link " href="/cour">
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <span class="nav-link-text">Les modules</span>
               </a>
             </li>
             <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
-            <li class="nav-item">
-              <a class="nav-link" href="/role-register">
-                <i class="ni ni-single-02 text-yellow"></i>
-                <span class="nav-link-text">Profile</span>
-              </a>
-            </li>
-            <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
-            <li class="nav-item">
-              <a class="nav-link " href="tables.html">
-                <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text">cours</span>
-              </a>
-            </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/role-register">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <span class="nav-link-text">Profile</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/salle">
+                      <i class="fa fa-cog" aria-hidden="true"></i>
+                      <span class="nav-link-text">Salles</span>
+                    </a>
+                  </li>
             <li class="nav-item">
               <a class="nav-link" href="login.html">
                 <i class="ni ni-key-25 text-info"></i>
@@ -444,20 +452,18 @@
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">
-              &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+               2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank"> ah-lem992</a>
             </div>
           </div>
           <div class="col-lg-6">
             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
               <li class="nav-item">
-                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                <a href="" class="nav-link" target="_blank"> ah-lem992</a>
               </li>
               <li class="nav-item">
                 <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
               </li>
-              <li class="nav-item">
-                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-              </li>
+
               <li class="nav-item">
                 <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
               </li>

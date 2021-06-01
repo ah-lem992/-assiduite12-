@@ -39,23 +39,24 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title  ">Les Groupes
+                  <h4 class="card-title  ">Les cours
                     </h4>
 
 
-                    <a href="{{ url('groupe/create') }}" class="btn btn-success"> nouveau groupe</a>
+                    <a href="{{ url('cour/create') }}" class="btn btn-success"> ajouter</a>
 
 
 
                        <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/search_groupe')}}" method="GET">
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/cour_search
+    ')}}" method="GET">
             {{ csrf_field() }}
            <div class="form-group mb-0">
              <div class="input-group input-group-alternative input-group-merge">
                <div class="input-group-prepend">
                  <span class="input-group-text"><i class="fas fa-search"></i></span>
                </div>
-               <input class="form-control" name="search" placeholder="tapez groupe num° " type="text">
+               <input class="form-control" name="search" placeholder="tapez le nom de cour " type="text">
              </div>
            </div>
            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -71,24 +72,25 @@
                       <thead class=" text-primary">
                    <tr>
                        <th>id </th>
-                       <th>groupe </th>
-                       <th>promo </th>
+                       <th>Nom de module </th>
+                       <th>prof de module</th>
                        <th>Editer</th>
                        <th>supprimer</th>
                    </tr>
                 <body>
 
-                    @foreach($groupes as $groupe )
+                    @foreach($cours as $cour )
 
                 <tr>
 
-                    <td> {{$groupe -> groupe_id}}</td>
-                    <td>{{$groupe -> groupe}}</td>
-                    <td>{{$groupe->promo->annee}}</td>
+                    <td> {{$cour -> cour_id}}</td>
+                    <td>{{$cour -> nom}}</td>
+                   <td>le nom de prof </>
+
                             <td>
-                             <a href="{{ url('groupe/'.$groupe->groupe_id) }}" class="btn btn-primary">editer </a>
+                             <a href="{{ url('cour/'.$cour->cour_id) }}" class="btn btn-primary">editer </a>
                             </td>
-                            <!--  <a href="{{ url('') }}" class="btn btn-success"> nouvelle année</a>-->
+                            <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
                             <td>
 
                                 <a href="javascript::void(0)" class="btn btn-danger deletebtn">supprimer </a>
@@ -110,6 +112,7 @@
 </div>
 
 
+{{$cours->links()}}
 
 @endsection
 @section('scripts')
@@ -126,7 +129,7 @@
         }).get();
         //console$()
         $('#id_delete').val(data[0]);
-        $('#delete-model_form').attr('action','/groupe-delete/'+data[0]);
+        $('#delete-model_form').attr('action','/cour-delete/'+data[0]);
         $('#deletemodalpop').modal('show');
 
 
