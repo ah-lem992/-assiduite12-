@@ -17,6 +17,11 @@
     <div class="form-group">
       <label for="exampleFormControlInput1">cour</label>
       <input type="text" name="nom" class="form-control" id="exampleFormControlInput1" placeholder="taper le cour">
+      @if($errors->get('nom'))
+      @foreach ($errors ->get('nom') as $message )
+          <li> {{$message}}</li>
+      @endforeach
+      @endif
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1" >selectionez le proffeseur</label>

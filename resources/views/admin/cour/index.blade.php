@@ -74,7 +74,7 @@
                        <th>id </th>
                        <th>Nom de module </th>
                        <th>prof de module</th>
-                       <th>Editer</th>
+                       <th>ajouter cour</th>
                        <th>supprimer</th>
                    </tr>
                 <body>
@@ -85,10 +85,14 @@
 
                     <td> {{$cour -> cour_id}}</td>
                     <td>{{$cour -> nom}}</td>
-                   <td>le nom de prof </>
+                    <td>
+                        @foreach ($cour->profs as $profs)
+                            {{ $profs->nom }} <br>
+                        @endforeach
+                    </td>
 
                             <td>
-                             <a href="{{ url('cour/'.$cour->cour_id) }}" class="btn btn-primary">editer </a>
+                             <a href="{{ url('cour/'.$cour->cour_id) }}" class="btn btn-primary">Ajouter prof </a>
                             </td>
                             <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
                             <td>

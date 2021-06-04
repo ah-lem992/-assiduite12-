@@ -43,6 +43,7 @@
                   <h4 class="card-title ">Les professeurs
                                <a href="{{ url('prof/create') }}" class="btn btn-success"> nouveau prof</a>
                     </h4>
+
                       <!-- Search form -->
           <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/prof_search')}}" method="GET">
             {{ csrf_field() }}
@@ -69,7 +70,7 @@
                        <th>nom </th>
                        <th>grade </th>
                        <th>module </th>
-                       <th>Editer</th>
+                       <th>ajouter module</th>
                        <th>supprimer</th>
                    </tr>
                 <body>
@@ -79,11 +80,16 @@
                             <td>{{$prof->prof_id}}<br></td>
                             <td>{{$prof->nom}}<br></td>
                             <td>{{$prof->grade}}<br></td>
-                            <td>cour</td>
+                            <td>
+                                @foreach ($prof->cours as $cours)
+                                    {{ $cours->nom }} <br>
+                                @endforeach
+                            </td>
 
                             <td>
-                                <a href="{{ url('prof/'.$prof->prof_id) }}" class="btn btn-primary">editer </a>
+                                <a href="{{ url('prof/'.$prof->prof_id) }}" class="btn btn-primary">Ajouter module </a>
                             </td>
+
                             <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
                             <td>
 

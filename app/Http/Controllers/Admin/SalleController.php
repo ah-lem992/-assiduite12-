@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\salleRequest;
 use App\Salle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,7 @@ class SalleController extends Controller
     {
         return view('admin\salle.create');
     }
-    public function store(Request $request)
+    public function store(salleRequest $request)
     {
         $salle = new Salle();
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
@@ -32,7 +33,7 @@ class SalleController extends Controller
         $salle = Salle::find($salle_id);
         return view('admin.salle.edit')->with('salle', $salle);
     }
-    public function update(Request $request, $salle_id)
+    public function update(salleRequest $request, $salle_id)
     {
         $salle = Salle::find($salle_id);
         $salle->num = $request->input('num');

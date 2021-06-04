@@ -16,7 +16,6 @@ class AddColumnPromoId extends Migration
         Schema::table('groupes', function (Blueprint $table) {
 
             $table->unsignedBigInteger('promo_id');
-
             //$table->integer('promo_id')->unsigned()->after('groupe_id');
             $table->foreign('promo_id')->references('id')->on('promos');
             //

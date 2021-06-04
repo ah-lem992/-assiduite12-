@@ -9,7 +9,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Les cours</h4>
+                  <h4 class="card-title ">Les profs</h4>
 
                 <div class="card-body">
                   <div class="table-responsive">
@@ -23,13 +23,28 @@
                         <br/>
                         <div class="form-group">
                             <label for="">cour</label>
-                            <input type="text" name="cour" class="form-control" id="exampleFormControlInput1" value="{{$cour-> cour}}" value="{{ old('cour') }}" {{Request::old('cour')}}>
-                          </div>
+                            <input type="text" name="nom" class="form-control" id="exampleFormControlInput1" value="{{$cour-> nom}}" value="{{ old('nom') }}" {{Request::old('nom')}}>
+                            @if($errors->get('nom'))
+                            @foreach ($errors ->get('nom') as $message )
+                                <li> {{$message}}</li>
+                            @endforeach
+                    @endif
+                        </div>
 
                         <br/>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1" >selectionez promo</label>
+                            <label for="exampleFormControlSelect1" >selectionez prof</label>
+                            <select class="form-control" name="profses_ids[]" id="exampleFormControlSelect1" multiple>
+                                    @foreach ($profs as $prof)
+                                    <option value="{{$prof->prof_id}}">{{$prof->nom}}</option>
+                                       @endforeach
 
+                                </select>
+                                @if($errors->get('profses_ids[]'))
+                                @foreach ($errors ->get('profses_ids[]') as $message )
+                                    <li> {{$message}}</li>
+                                @endforeach
+                                @endif
                           </div>
 
 

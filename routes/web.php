@@ -64,6 +64,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/prof/{prof_id}', 'Admin\ProfController@edit');
     Route::put('/prof/{prof_id}', 'Admin\ProfController@update');
     Route::get('prof-delete/{prof_id}', 'Admin\ProfController@destroy');
+    //many to many essay
+    Route::get('/prof-associe', 'Admin\AssocieController@associe');
+    Route::post('/prof-save', 'Admin\AssocieController@store');
+
 
     //route pour les cours
     Route::get('/cour', 'Admin\CourController@index');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Cour;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\courRequest;
+use App\Prof;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,7 +13,7 @@ class CourController extends Controller
 {
     public function index()
     {
-            $listcour = DB::table('cours')->paginate(3);
+        $listcour = Cour::paginate(3);
            // $listcour = Cour::all();
             //$listcour = cour::all();
        //     $listcour = Cour::with('profs')->get();
@@ -20,9 +22,11 @@ class CourController extends Controller
     }
     public function create()
     {
-        return view('admin\cour.create');
+       /* $profs = Prof::all();
+        return view('admin\prof.create', compact('profs'));*/
+         return view('admin\cour.create');
     }
-    public function store(Request $request)
+    public function store(courRequest $request)
     {
         $cour = new Cour();
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
@@ -31,17 +35,26 @@ class CourController extends Controller
         // session()->flash('success', 'année  a étè bien crée');
         return redirect('cour')->with('status', 'annee a etais crée');
     }
-    public function edit($id)
+    public function edit($cour_id)
     {
-        $cour = Cour::find($id);
-        return view('admin.cour.edit')->with('cour', $cour);
+        $cour = Cour::find($cour_id);
+        $profs = Prof::all();
+        return view('admin.cour.edit', compact('cour', 'profs'));
     }
-    public function update(Request $request, $id)
+    public function update(courRequest $request, $cour_id)
     {
-        $cour = Cour::find($id);
+        $cour = Cour::find($cour_id);
         $cour->nom = $request->input('nom');
         $cour->save();
-        return redirect('cour')->with('status', 'annee a etais crée ');
+
+        if ($request->has('profses_ids')) {
+
+            foreach ($request['profses_ids'] as $prof_id){
+
+                $cour->profs()-> syncWithoutDetaching($request->profses_ids);
+            }
+            }
+            return redirect('cour')->with('status', 'annee a etais crée ');
     }
     public function destroy(Request $request, $cour_id)
     {

@@ -17,6 +17,13 @@
                 <div class="form-group">
                     <label >Num de salle :</label>
                     <input type="text" name="num" class="form-control">
+                    @if($errors->get('num'))
+                    @foreach ($errors ->get('num') as $message )
+                        <li> {{$message}}</li>
+                    @endforeach
+                    @endif
+
+
 
 
                 </div>

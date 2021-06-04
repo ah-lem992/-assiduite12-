@@ -2,46 +2,73 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Cour;
 use App\Http\Controllers\Controller;
 
 use App\Prof;
 use Illuminate\Http\Request;
+use App\Http\Requests\profRequest;
+use App\Salle;
 use Illuminate\Support\Facades\DB;
 
 class ProfController extends Controller
 {
     public function index()
     { //$listpromo = Promo::all();
-       $listprof = DB::table('profs')->paginate(3);
+       $listprof = Prof::paginate(3);
      //$listprof = Prof::with('cours')->get();
     return view('admin.prof.index', ['profs' => $listprof]);
     }
     public function create()
     {
-        return view('admin\prof.create');
+
+        $cours = Cour::all();
+        return view('admin\prof.create', compact('cours'));
+       // return view('admin\prof.create');
     }
-    public function store(Request $request)
+    public function store(profRequest $request)
     {
+        $prof = $request->all();
+        Prof::create($prof);
+        return redirect('prof')->with("status", "l'annee a etais crée ");
+
+/*
+
         $prof = new Prof();
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
         $prof->nom = $request->input('nom');
         $prof->grade = $request->input('grade');
         $prof->save();
         // session()->flash('success', 'année  a étè bien crée');
-        return redirect('prof')->with("status", "prof ajouté avec succés ");
+        return redirect('prof')->with("status", "prof ajouté avec succés ");*/
     }
     public function edit($prof_id)
     {
+       /* $profs = Prof::all();
+        $cour = Cour::find($prof_id);
+        return view('admin.prof.edit', compact('cour', 'profs'));*/
+        $cours = Cour::all();
         $prof = Prof::find($prof_id);
-        return view('admin.prof.edit')->with('prof', $prof);
+
+        return view('admin.prof.edit', compact('cours', 'prof'));
     }
-    public function update(Request $request, $prof_id)
+    public function update(profRequest $request, $prof_id)
     {
+
         $prof = Prof::find($prof_id);
         $prof->nom = $request->input('nom');
         $prof->grade = $request->input('grade');
         $prof->save();
-        return redirect('prof')->with("status", "l'annee a etais crée ");
+
+        if ($request->has('courses_ids')) {
+
+        foreach ($request['courses_ids'] as $cour_id){
+
+            $prof->cours()-> syncWithoutDetaching($request->courses_ids);
+        }
+        }
+
+        return redirect('prof');
     }
     public function destroy(Request $request, $prof_id)
     {
@@ -49,7 +76,7 @@ class ProfController extends Controller
         $prof = Prof::find($prof_id);
         $prof->delete();
         // session()->flash('danger', 'année a étè  supprimé');
-        return redirect('groupe')->with('status', 'annee a etais crée ');
+        return redirect('prof')->with('status', 'annee a etais crée ');
     }
     public function search(Request $request)
     {

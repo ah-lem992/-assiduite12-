@@ -60,7 +60,7 @@
             </li></li>
             <li class="nav-item">
               <a class="nav-link" href="/promo">
-                <i class="" aria-hidden="true"></i>
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
 
                 <span class="nav-link-text">Promo</span>
               </a>

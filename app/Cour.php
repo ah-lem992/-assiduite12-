@@ -17,6 +17,6 @@ class Cour extends Model
 
     public function profs()
     {
-        return $this->belongsToMany('App\Prof');
+        return $this->belongsToMany('App\Prof','cour_prof','cour_id','prof_id');
     }
 }

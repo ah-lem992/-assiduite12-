@@ -24,6 +24,12 @@
                         <div class="form-group">
                             <label for="">Num° </label>
                             <input type="text" name="num" class="form-control" value="{{$salle-> num}}" value="{{ old('num') }}">
+                            @if($errors->get('num'))
+                            @foreach ($errors ->get('num') as $message )
+                                <li> {{$message}}</li>
+                            @endforeach
+                            @endif
+
                         </div>
                         <br/>
 
