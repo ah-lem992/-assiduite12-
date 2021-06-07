@@ -86,6 +86,12 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/salle/{salle_id}', 'Admin\SalleController@edit');
     Route::put('/salle/{salle_id}', 'Admin\SalleController@update');
     Route::get('salle-delete/{salle_id}', 'Admin\SalleController@destroy');
-
+//pour lesson
+    Route::get('/seance', 'Admin\SeanceController@index');
+    Route::get('/seance/create', 'Admin\SeanceController@create');
+    Route::post('/seance', 'Admin\SeanceController@store');
+    Route::get('/seance/{id}', 'Admin\SeanceController@edit');
+    Route::put('/seance/{id}', 'Admin\SeanceController@update');
+    Route::get('seance-delete/{id}', 'Admin\SeanceController@destroy');
 
 });

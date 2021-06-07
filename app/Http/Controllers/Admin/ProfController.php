@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Cour;
 use App\Http\Controllers\Controller;
-
 use App\Prof;
 use Illuminate\Http\Request;
 use App\Http\Requests\profRequest;

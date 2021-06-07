@@ -15,7 +15,7 @@ class GroupeController extends Controller
 
     {
        // $listgroupe = DB::table('groupes')->paginate(3);
-       $listgroupe = Groupe::paginate(3);
+        $listgroupe = Groupe::paginate(3);
         return view('admin.groupe.index', ['groupes' => $listgroupe]);
     }
     public function create()

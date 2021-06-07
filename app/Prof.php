@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Cour;
+use App\Seance;
 
 class Prof extends Model
 {
@@ -18,5 +18,9 @@ class Prof extends Model
     public function cours()
     {
         return $this->belongsToMany('App\Cour','cour_prof','prof_id','cour_id');
+    }
+    public function seance()
+    {
+        return $this->hasmany('App\Seance');
     }
 }

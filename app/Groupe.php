@@ -17,4 +17,8 @@ class Groupe extends Model
     {
         return $this->belongsTo('App\Promo');
     }
+    public function seances()
+    {
+        return $this->hasmany('App\Seance');
+    }
 }

@@ -13,4 +13,9 @@ class Salle extends Model
         'num'
     ];
     protected $primaryKey = "salle_id";
+
+    public function seance()
+    {
+        return $this->hasmany('App\Seance');
+    }
 }
