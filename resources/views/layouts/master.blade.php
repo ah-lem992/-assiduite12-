@@ -53,9 +53,9 @@
           <ul class="navbar-nav">
               <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
             <li class="nav-item">
-              <a class="nav-link" href="/dashboard">
+              <a class="nav-link" href="/seance">
                 <i class="ni ni-tv-2 text-primary"></i>
-                <span class="nav-link-text">Dashboard</span>
+                <span class="nav-link-text">L'emploi du temps</span>
               </a>
             </li></li>
             <li class="nav-item">
@@ -77,6 +77,12 @@
                 <span class="nav-link-text">Les proffeseurs</span>
               </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/etudiant">
+                  <i class="fa fa-users"></i>
+                  <span class="nav-link-text">L'les etudiants</span>
+                </a>
+              </li>
 
             <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
             <li class="nav-item">
@@ -98,16 +104,11 @@
                       <span class="nav-link-text">Salles</span>
                     </a>
                   </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">
-                <i class="ni ni-key-25 text-info"></i>
-                <span class="nav-link-text">Login</span>
-              </a>
-            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="register.html">
                 <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Register</span>
+                <span class="nav-link-text"></span>
               </a>
             </li>
             <li class="nav-item">

@@ -42,11 +42,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/promo/{id}', 'Admin\PromoController@edit');
     Route::put('/promo/{id}', 'Admin\PromoController@update');
     Route::get('promo-delete/{id}', 'Admin\PromoController@destroy');
-    /*pour les prof
-    Route::get('/prof', 'Admin\ProfController@index');
-    Route::get('/prof/create', 'Admin\ProfController@create');
-    Route::post('/prof', 'Admin\ProfController@store');
-    */
+
+
     //route pour les groupe
     Route::get('/groupe', 'Admin\GroupeController@index');
     Route::get('/search_groupe', 'Admin\GroupeController@search')->name('search');
@@ -93,5 +90,22 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/seance/{id}', 'Admin\SeanceController@edit');
     Route::put('/seance/{id}', 'Admin\SeanceController@update');
     Route::get('seance-delete/{id}', 'Admin\SeanceController@destroy');
+
+    //route pour l'etudiant
+    Route::get('/etudiant', 'Admin\EtudiantController@index');
+    Route::get('/etudiant/create', 'Admin\EtudiantController@create');
+    Route::post('/etudiant', 'Admin\EtudiantController@store');
+    Route::get('/etudiant/{etud_id}', 'Admin\EtudiantController@edit');
+    Route::put('/etudiant/{etud_id}', 'Admin\EtudiantController@update');
+    Route::get('etudiant-delete/{etud_id}', 'Admin\EtudiantController@destroy');
+
+    //route pour presence
+    Route::get('/presence', 'Admin\PresenceController@index');
+    Route::get('/presence/create', 'Admin\PresenceController@create');
+    Route::post('/presence', 'Admin\PresenceController@store');
+
+
+
+
 
 });

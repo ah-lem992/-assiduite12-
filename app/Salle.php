@@ -16,6 +16,6 @@ class Salle extends Model
 
     public function seance()
     {
-        return $this->hasmany('App\Seance');
+        return $this->hasmany('App\Seance','id');
     }
 }

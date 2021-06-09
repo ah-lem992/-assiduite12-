@@ -40,7 +40,7 @@
           <div class="card">
             <div class="card-header card-header-primary">
               <h4 class="card-title ">Emploi du temps
-                           <a href="{{ url('seance/create') }}" class="btn btn-success">  Nouveau</a>
+                           <a href="{{ url('presence/create') }}" class="btn btn-success">  Nouveau</a>
                 </h4>
     <div class="card-body">
         <div class="table-responsive">
@@ -48,41 +48,30 @@
             <thead class=" text-primary">
          <tr>
              <th>id </th>
-             <th>cour </th>
-             <th>type </th>
              <th>prof </th>
-             <th>salle </th>
-             <th>le jour</th>
-             <th>H d'entré</th>
-             <th>H d'sortie</th>
+             <th>seance</th>
+             <th>etud</th>
+
              <th>editer /supprimer</th>
          </tr>
       <body>
-        @foreach($seances as $seance)
+                   @foreach ($presences as $presence )
         <tr>
-                    <td>{{$seance->id}}</td>
-                    <td> {{$seance->cour->nom}}</td>
-                    <td>{{$seance->type}}</td>
-                    <td>{{$seance->prof->nom}}</td>
-                    <td>{{$seance->salle->num}}</td>
-                    <td>{{$seance->day}}</td>
-                    <td>{{$seance->start_time}}</td>
-                    <td>{{$seance->end_time}}</td>
+                    <td>{{$presence->presence_id}}</td>
 
-
-
-
+                    <td> {{$presence->prof_id}} </td>
+                    <td>{{$presence->id}}</td>
+                    <td>{{$presence->etud_id}}</td>
                     <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
                     <td>
-
-                        <a href="{{ url('seance/'.$seance->id) }}" class="btn btn-primary">mod</a>
+                        <a href="" class="btn btn-primary">mod</a>
                         <button type="submit" class="btn btn-danger deletebtn">Supp</button>
                          </form>
                     </td>
 
          </tr>
+         @endforeach
 
-   @endforeach
 
         </body>
     </table>
@@ -110,7 +99,7 @@ var data =$tr.children("td").map(function(){
 }).get();
 //console$()
 $('#id_delete').val(data[0]);
-$('#delete-model_form').attr('action','/seance-delete/'+data[0]);
+$('#delete-model_form').attr('action','//'+data[0]);
 $('#deletemodalpop').modal('show');
 
 

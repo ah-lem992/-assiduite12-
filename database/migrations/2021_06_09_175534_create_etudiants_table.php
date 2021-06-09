@@ -14,7 +14,17 @@ class CreateEtudiantsTable extends Migration
     public function up()
     {
         Schema::create('etudiants', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('etud_id');
+            $table->unsignedBigInteger('groupe_id')->unsigned()->nullable();
+            $table->foreign('groupe_id')->references('groupe_id')->on('groupes');
+            $table->String('nom');
+            $table->String('prenom');
+            $table->string('sexe');
+            $table->date('naissance');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('adresse');
+            $table->string('photo');
             $table->timestamps();
         });
     }
@@ -27,5 +37,6 @@ class CreateEtudiantsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('etudiants');
+
     }
 }

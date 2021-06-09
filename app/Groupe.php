@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Promo;
+use App\Etudiant;
 
 class Groupe extends Model
 {
@@ -20,5 +21,9 @@ class Groupe extends Model
     public function seances()
     {
         return $this->hasmany('App\Seance');
+    }
+    public function etudiant()
+    {
+        return $this->hasmany('App\Etudiant');
     }
 }

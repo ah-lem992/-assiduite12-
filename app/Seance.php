@@ -23,19 +23,19 @@ class Seance extends Model
     protected $dates = ['deleted_at'];
     public function cour()
     {
-        return $this->belongsTo('App\Cour');
+        return $this->belongsTo('App\Cour','cour_id');
     }
     function salle()
     {
-        return $this->belongsTo('App\Salle');
+        return $this->belongsTo('App\Salle','salle_id');
     }
     public function prof()
     {
-        return $this->belongsTo('App\Prof');
+        return $this->belongsTo('App\Prof','prof_id');
     }
     public function groupe()
     {
-        return $this->belongsTo('App\Groupe');
+        return $this->belongsTo('App\Groupe','groupe_id');
     }
 
 }

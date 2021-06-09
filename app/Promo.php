@@ -11,7 +11,7 @@ class Promo extends Model
     //use SoftDeletes;
     //
     //protected $dates = ['deleted_at'];
-    public function groupes()
+    public function groupe()
     {
         return $this->hasMany('App\Groupe');
     }
