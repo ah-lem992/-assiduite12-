@@ -39,6 +39,11 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
+                    @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{session()->get('success')}}
+                    </div>
+                    @endif
                   <h4 class="card-title ">Les promos
                                <a href="{{ url('promo/create') }}" class="btn btn-success"> nouvelle année</a>
                     </h4>

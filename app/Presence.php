@@ -18,5 +18,8 @@ class Presence extends Model
         'created_at',
         'updated_at',
     ];
+    public function profs(){
+        return $this->belongsTo('App\Prof','prof_id');
+    }
 
 }

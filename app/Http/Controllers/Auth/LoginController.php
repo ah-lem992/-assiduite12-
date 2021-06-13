@@ -32,9 +32,14 @@ class LoginController extends Controller
     {
         if (Auth::user()->usertype == 'admin') {
             return 'dashboard';
-        } else {
-            return 'home';
+
+        } elseif (Auth::user()->usertype == 'prof') {
+            return 'index';
         }
+
+
+
+
     }
 
     /**

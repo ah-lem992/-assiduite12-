@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Support\Facades\Auth;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class ProfMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,12 +16,12 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->usertype == 'admin') {
+        if(Auth::user()->usertype =='prof') {
             return $next($request);
         }
-                else
-                    return redirect('/home');
-
+        else
+        {
+           return redirect('/home');
         }
     }
-
+}

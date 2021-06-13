@@ -39,7 +39,12 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title ">Emploi du temps
+                @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{session()->get('success')}}
+                </div>
+                @endif
+              <h4 class="card-title ">la présence
                            <a href="{{ url('presence/create') }}" class="btn btn-success">  Nouveau</a>
                 </h4>
     <div class="card-body">
@@ -50,7 +55,7 @@
              <th>id </th>
              <th>prof </th>
              <th>seance</th>
-             <th>etud</th>
+             <th>etudiant</th>
 
              <th>editer /supprimer</th>
          </tr>
@@ -64,7 +69,7 @@
                     <td>{{$presence->etud_id}}</td>
                     <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
                     <td>
-                        <a href="" class="btn btn-primary">mod</a>
+                        <a href="{{ url('presence/'.$presence->presence_id) }}" class="btn btn-primary">mod</a>
                         <button type="submit" class="btn btn-danger deletebtn">Supp</button>
                          </form>
                     </td>
@@ -99,7 +104,7 @@ var data =$tr.children("td").map(function(){
 }).get();
 //console$()
 $('#id_delete').val(data[0]);
-$('#delete-model_form').attr('action','//'+data[0]);
+$('#delete-model_form').attr('action','/presence-delete/'+data[0]);
 $('#deletemodalpop').modal('show');
 
 

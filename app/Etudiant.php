@@ -15,4 +15,8 @@ class Etudiant extends Model
     {
         return $this->belongsTo('App\Groupe','groupe_id');
     }
+    public function prof()
+    {
+        return $this->belongsTo('App\Prof','prof_id');
+    }
 }

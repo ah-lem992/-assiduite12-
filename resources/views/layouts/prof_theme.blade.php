@@ -43,7 +43,7 @@
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
-          Admin
+          Prof panel
         </a>
       </div>
       <div class="navbar-inner">
@@ -51,61 +51,28 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
-              <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
+              <li class="">
             <li class="nav-item">
-              <a class="nav-link" href="/seance">
+              <a class="nav-link" href="">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">L'emploi du temps</span>
               </a>
             </li></li>
             <li class="nav-item">
-                <a class="nav-link" href="/presence">
+                <a class="nav-link" href="/presences">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">la présence  </span>
                 </a>
               </li>
             <li class="nav-item">
-              <a class="nav-link" href="/promo">
-                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-
-                <span class="nav-link-text">Promo</span>
-              </a>
-            </li>
-            <li class="{{'groupe' ==request()->path() ?'active': ''}}">
-                <a class="nav-link" href="/groupe">
-                    <i class="fa fa-list-alt" aria-hidden="true"></i>
-                  <span class="nav-link-text">Groupe</span>
-                </a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/prof">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <span class="nav-link-text">Les proffeseurs</span>
-              </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/etudiant">
-                  <i class="fa fa-users"></i>
-                  <span class="nav-link-text">les etudiants</span>
-                </a>
-              </li>
-
-            <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
-            <li class="nav-item">
-              <a class="nav-link " href="/cour">
+              <a class="nav-link " href="">
                 <i class="fa fa-book" aria-hidden="true"></i>
                 <span class="nav-link-text">Les modules</span>
               </a>
             </li>
-            <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
+
                 <li class="nav-item">
-                  <a class="nav-link" href="/role-register">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                    <span class="nav-link-text">Profile</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/salle">
+                    <a class="nav-link" href="">
                       <i class="fa fa-cog" aria-hidden="true"></i>
                       <span class="nav-link-text">Salles</span>
                     </a>
@@ -117,13 +84,51 @@
                 <span class="nav-link-text"></span>
               </a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="upgrade.html">
+                <i class="ni ni-send text"></i>
+                <span class="nav-link-text">Upgrade</span>
+              </a>
+            </li>
           </ul>
           <!-- Divider -->
           <hr class="my-3">
           <!-- Heading -->
-
-
+          <h6 class="navbar-heading p-0 text-muted">
+            <span class="docs-normal">Documentation</span>
+          </h6>
+          <!-- Navigation -->
+          <ul class="navbar-nav mb-md-3">
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+                <i class="ni ni-spaceship"></i>
+                <span class="nav-link-text">Getting started</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
+                <i class="ni ni-palette"></i>
+                <span class="nav-link-text">Foundation</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
+                <i class="ni ni-ui-04"></i>
+                <span class="nav-link-text">Components</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                <i class="ni ni-chart-pie-35"></i>
+                <span class="nav-link-text">Plugins</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active active-pro" href="upgrade.html">
+                <i class="ni ni-send text-dark"></i>
+                <span class="nav-link-text">Upgrade to PRO</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -392,11 +397,18 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-
-
+              <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="{{ url('/promo')}}"></a></li>
+                  <!--<li class="breadcrumb-item active" aria-current="page">Tables</li>-->
+                </ol>
+              </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-
+              <a href="#" class="btn btn-sm btn-neutral">New</a>
+              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
             </div>
           </div>
         </div>

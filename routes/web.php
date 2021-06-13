@@ -44,7 +44,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('promo-delete/{id}', 'Admin\PromoController@destroy');
 
 
-    //route pour les groupe
+    //route pour les groupes
     Route::get('/groupe', 'Admin\GroupeController@index');
     Route::get('/search_groupe', 'Admin\GroupeController@search')->name('search');
     Route::get('/groupe/create', 'Admin\GroupeController@create');
@@ -83,7 +83,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/salle/{salle_id}', 'Admin\SalleController@edit');
     Route::put('/salle/{salle_id}', 'Admin\SalleController@update');
     Route::get('salle-delete/{salle_id}', 'Admin\SalleController@destroy');
-//pour lesson
+    //pour lesson
     Route::get('/seance', 'Admin\SeanceController@index');
     Route::get('/seance/create', 'Admin\SeanceController@create');
     Route::post('/seance', 'Admin\SeanceController@store');
@@ -103,9 +103,26 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/presence', 'Admin\PresenceController@index');
     Route::get('/presence/create', 'Admin\PresenceController@create');
     Route::post('/presence', 'Admin\PresenceController@store');
+    Route::get('/presence/{presence_id}', 'Admin\PresenceController@edit');
+    Route::put('/presence/{presence_id}', 'Admin\PresenceController@update');
+    Route::get('/presence-delete/{presence_id}', 'Admin\PresenceController@destroy');
+});
+
+Route::group(['middleware' => ['auth', 'prof']], function () {
 
 
 
+    Route::get('/index', function () {
+        return view('profeseur.index');
+    });
 
+    //Route::get('/etudiants', 'Prof\ProfController@index');
 
+    //route pour presences c'etait presences
+    Route::get('/prof/presences', 'App\Http\Controllers\Prof\PrController@index');
+    Route::get('/prof/presences/create', 'Prof\PresenceController@create');
+    Route::post('/presences', 'Prof\PresenceController@store');
+    Route::get('/presences/{presence_id}', 'Prof\PresenceController@edit');
+    Route::put('/presences/{presence_id}', 'Prof\PresenceController@update');
+    Route::get('presences-delete/{presence_id}', 'Prof\PresenceController@destroy');
 });

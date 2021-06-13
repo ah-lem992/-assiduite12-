@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.prof_theme')
 @section('title')
-            dashboard attendance
+            prof attendance
 @endsection
 
 @section('content')
@@ -33,7 +33,7 @@
         <select class="form-control" name="prof_id" id="exampleFormControlSelect1">
             @foreach ( $profs as $prof )
 
-          <option value="{{$prof->prof_id}}">{{$prof->prof_id}}</option>
+          <option value="{{$prof->prof_id}}">{{$prof->nom}}</option>
 
              @endforeach
         </select>
@@ -43,6 +43,7 @@
         @endforeach
         @endif
       </div>
+
 
 
 <div class="form-group">

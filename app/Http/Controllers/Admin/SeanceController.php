@@ -46,7 +46,8 @@ class SeanceController extends Controller
     ]);
 
         $seance->save();
-        return redirect('seance')->with('status', 'annee a etais crée');
+        session()->flash('success','ajout réussi');
+        return redirect('seance');
 
     }
     public function edit($id)

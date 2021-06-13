@@ -27,8 +27,9 @@ class PromoController extends Controller
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
         $promo->annee = $request->input('annee');
         $promo->save();
+        session()->flash('success','ajout réussi');
         // session()->flash('success', 'année  a étè bien crée');
-        return redirect('promo')->with("status", "l'annee a etais crée ");
+        return redirect('promo');
     }
     public function edit($id)
     {

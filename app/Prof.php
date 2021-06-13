@@ -23,4 +23,13 @@ class Prof extends Model
     {
         return $this->hasmany('App\Seance');
     }
+    public function etudiant()
+    {
+        return $this->hasmany('App\Etudiant','etud_id');
+    }
+    public function presences()
+    {
+        return $this->hasmany('App\Presence','presence_id');
+    }
+
 }

@@ -28,7 +28,8 @@ class ProfController extends Controller
     {
         $prof = $request->all();
         Prof::create($prof);
-        return redirect('prof')->with("status", "l'annee a etais crée ");
+        session()->flash('success','ajout réussi');
+        return redirect('prof');
 
 /*
 

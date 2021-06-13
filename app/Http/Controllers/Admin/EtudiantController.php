@@ -34,7 +34,8 @@ class EtudiantController extends Controller
             "photo" => $request->get("photo")
         ]);
         $etudiant->save();
-        return redirect('etudiant')->with("status", "l'annee a etais crée ");
+        session()->flash('success','ajout réussi');
+        return redirect('etudiant');
     }
     public function edit($etud_id)
     {

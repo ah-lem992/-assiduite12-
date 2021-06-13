@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Cour;
 use App\Etudiant;
 use App\Http\Controllers\Controller;
 use App\Presence;
 use App\Prof;
 use App\Seance;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\EventListener\SaveSessionListener;
 
 class PresenceController extends Controller
 {
@@ -16,7 +19,7 @@ class PresenceController extends Controller
 
         $presences = Presence::all();
 
-        return view('admin\presence.index', compact('presences'));
+        return view('admin.presence.index', compact('presences'));
     }
     public function create()
     {
@@ -24,7 +27,7 @@ class PresenceController extends Controller
         $profs = Prof::all();
         $seances = Seance::all();
         $etudiants = Etudiant::all();
-        return view('admin\presence.create', compact('etudiants','profs','seances'));
+        return view('admin.presence.create', compact('etudiants','profs','seances'));
 
 
     }

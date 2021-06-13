@@ -39,6 +39,11 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
+                    @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{session()->get('success')}}
+                    </div>
+                    @endif
                   <h4 class="card-title ">Les salles
                     <div class="col-lg-2 col-5 text-right">
                         <a href="{{ url('salle/create') }}" class="btn btn-sm btn-success">New</a>

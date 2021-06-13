@@ -27,7 +27,9 @@ class GroupeController extends Controller
     {
         $groupe = $request->all();
         Groupe::create($groupe);
-        return redirect('groupe')->with("status", "l'annee a etais crée ");
+        session()->flash('success','ajout réussi');
+
+        return redirect('groupe');
 
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
         /* $groupe->groupe = $request->input('groupe');

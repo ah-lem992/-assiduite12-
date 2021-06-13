@@ -26,7 +26,8 @@ class SalleController extends Controller
         $salle->num = $request->input('num');
         $salle->save();
         // session()->flash('success', 'année  a étè bien crée');
-        return redirect('salle')->with("status", "l'num a etais crée ");
+        session()->flash('success','ajout réussi');
+        return redirect('salle');
     }
     public function edit($salle_id)
     {

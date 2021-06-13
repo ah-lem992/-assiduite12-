@@ -33,7 +33,8 @@ class CourController extends Controller
         $cour->nom = $request->input('nom');
         $cour->save();
         // session()->flash('success', 'année  a étè bien crée');
-        return redirect('cour')->with('status', 'annee a etais crée');
+        session()->flash('success','ajout réussi');
+        return redirect('cour');
     }
     public function edit($cour_id)
     {
