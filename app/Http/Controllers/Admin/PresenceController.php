@@ -44,10 +44,21 @@ class PresenceController extends Controller
 
 
     ]);
+     /*   $presence = $request->all();
 
-        $presence->save();
-        return redirect('presence');
+            $presence['etudiants_ids'] = $request->input('etudiants_ids');
+
+            Presence::create($presence);*/
+             return redirect('presence');
 
     }
+    public function destroy(Request $request, $presence_id)
+    {
+        //return $request->all();
+        $presence = Presence::find($presence_id);
 
+        $presence->delete();
+        // session()->flash('danger', 'année a étè  supprimé');
+        return redirect('presence')->with("status", "l'annee a etais crée ");
+    }
 }

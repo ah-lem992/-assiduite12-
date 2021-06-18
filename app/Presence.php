@@ -9,11 +9,9 @@ class Presence extends Model
 
     protected $primaryKey = "presence_id";
     protected $fillable = [
-
-        'id',
         'prof_id',
         'id',
-       'etud_id',
+        'etud_id',
 
         'created_at',
         'updated_at',
@@ -21,5 +19,12 @@ class Presence extends Model
     public function profs(){
         return $this->belongsTo('App\Prof','prof_id');
     }
+    public function seances(){
+        return $this->belongsTo('App\Seance','id');
+    }
+    public function etudiants(){
+        return $this->belongsTo('App\Etudiant','etud_id');
+    }
+
 
 }

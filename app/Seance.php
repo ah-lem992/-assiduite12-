@@ -38,4 +38,5 @@ class Seance extends Model
         return $this->belongsTo('App\Groupe','groupe_id');
     }
 
+
 }

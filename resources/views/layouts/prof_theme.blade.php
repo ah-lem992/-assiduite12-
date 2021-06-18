@@ -59,7 +59,7 @@
               </a>
             </li></li>
             <li class="nav-item">
-                <a class="nav-link" href="/presences">
+                <a class="nav-link" href="/profs/presences">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">la présence  </span>
                 </a>

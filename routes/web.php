@@ -112,17 +112,17 @@ Route::group(['middleware' => ['auth', 'prof']], function () {
 
 
 
-    Route::get('/index', function () {
-        return view('profeseur.index');
+    Route::get('/hello', function () {
+        return view('profeseur.hello');
     });
 
     //Route::get('/etudiants', 'Prof\ProfController@index');
 
     //route pour presences c'etait presences
-    Route::get('/prof/presences', 'App\Http\Controllers\Prof\PrController@index');
-    Route::get('/prof/presences/create', 'Prof\PresenceController@create');
-    Route::post('/presences', 'Prof\PresenceController@store');
-    Route::get('/presences/{presence_id}', 'Prof\PresenceController@edit');
-    Route::put('/presences/{presence_id}', 'Prof\PresenceController@update');
-    Route::get('presences-delete/{presence_id}', 'Prof\PresenceController@destroy');
+    Route::get('/profs/presences', 'Prof\PresenceController@index');
+    Route::get('/profs/presences/create', 'Prof\PresenceController@create');
+    Route::post('/profs/presences', 'Prof\PresenceController@store');
+    Route::get('/profs/presences/{presence_id}', 'Prof\PresenceController@edit');
+    Route::put('/profs/presences/{presence_id}', 'Prof\PresenceController@update');
+    Route::get('/profs/presences-delete/{presence_id}', 'Prof\PresenceController@destroy');
 });

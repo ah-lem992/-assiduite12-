@@ -11,7 +11,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">
 
-<form action="{{url('/seance')}}" method="post">
+<form action="{{url('/presence')}}" method="post">
     @csrf
 
 

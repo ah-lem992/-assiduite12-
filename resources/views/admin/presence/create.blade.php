@@ -11,7 +11,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">
 
-<form action="{{url('/presences')}}" method="post">
+<form action="{{url('/profs/presences')}}" method="post">
     @csrf
 
     <div class="form-group">
@@ -44,21 +44,20 @@
         @endif
       </div>
 
+      <div class="form-group">
+        <label for="exampleFormControlSelect1" >selectionez etudiant</label>
+        <select class="form-control" name="etud_id" id="exampleFormControlSelect1">
+            @foreach ( $etudiants as $etudiant )
 
-<div class="form-group">
-    <label for="exampleFormControlSelect1" >selectionez etudiant</label>
-    <select class="form-control" name="etud_id" id="exampleFormControlSelect1">
-        @foreach ( $etudiants as $etudiant )
-
-      <option value="{{$etudiant->etud_id}}">{{$etudiant->nom}}</option>
-         @endforeach
-    </select>
-    @if($errors->get('etud_id'))
-    @foreach ($errors ->get('etud_id') as $message )
-        <li> {{$message}}</li>
-    @endforeach
-    @endif
-    </div>
+          <option value="{{$etudiant->etud_id}}">{{$etudiant->nom}}</option>
+             @endforeach
+        </select>
+        @if($errors->get('etud_id'))
+        @foreach ($errors ->get('etud_id') as $message )
+            <li> {{$message}}</li>
+        @endforeach
+        @endif
+        </div>
 
 
         <div class="form-group">

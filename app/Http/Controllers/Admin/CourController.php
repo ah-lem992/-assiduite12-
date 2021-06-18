@@ -28,7 +28,7 @@ class CourController extends Controller
     }
     public function store(courRequest $request)
     {
-        $cour = new Cour();
+        $cour = new Cour(); 
         // var -> champs dans bdd = var dans chmps $req ->input(nom input)
         $cour->nom = $request->input('nom');
         $cour->save();

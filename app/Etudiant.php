@@ -19,4 +19,8 @@ class Etudiant extends Model
     {
         return $this->belongsTo('App\Prof','prof_id');
     }
+    public function presences()
+    {
+        return $this->hasMany('App\Presence','presence_id');
+    }
 }

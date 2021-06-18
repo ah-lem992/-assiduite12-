@@ -34,7 +34,7 @@ class LoginController extends Controller
             return 'dashboard';
 
         } elseif (Auth::user()->usertype == 'prof') {
-            return 'index';
+            return 'hello';
         }
 
 

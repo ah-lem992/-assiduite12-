@@ -2,7 +2,7 @@
 @section('title')
             prof attendance
 @endsection
-@section('content')
+
 @section('content')
 <div class="card">
     <div class="card-header">
@@ -41,39 +41,36 @@
           <div class="card">
             <div class="card-header card-header-primary">
               <h4 class="card-title ">la présence
-                           <a href="{{ url('presences/create') }}" class="btn btn-success">  Nouveau</a>
+                           <a href="{{ url('/profs/presences/create') }}" class="btn btn-success">  Nouveau</a>
                 </h4>
     <div class="card-body">
         <div class="table-responsive">
           <table  id= "dataTable" class="table">
             <thead class=" text-primary">
-         <tr>
-             <th>id </th>
-             <th>prof nom</th>
-             <th>seance</th>
+                <tr>
+                    <th>id </th>
+                    <th>prof </th>
+                    <th>seance</th>
+                    <th>etudiant</th>
 
-             <th>etudiant</th>
-
-
-             <th>editer /supprimer</th>
-         </tr>
-      <body>
-                   @foreach ($presences as $presence )
-        <tr>
+                    <th>editer /supprimer</th>
+                </tr>
+             <body>
+                          @foreach ($presences as $presence )
+               <tr>
                     <td>{{$presence->presence_id}}</td>
-                    <td>{{$presence->prof_id}}</td>
+
+                    <td> {{$presence->prof_id}} </td>
                     <td>{{$presence->id}}</td>
-
                     <td>{{$presence->etud_id}}</td>
+                           <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
+                           <td>
+                               <a href="{{ url('/profs/presences/'.$presence->presence_id) }}" class="btn btn-primary">mod</a>
+                               <button type="submit" class="btn btn-danger deletebtn">Supp</button>
+                                </form>
+                           </td>
 
-                    <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
-                    <td>
-                        <a href="{{ url('presences/'.$presence->presence_id) }}" class="btn btn-primary">mod</a>
-                        <button type="submit" class="btn btn-danger deletebtn">Supp</button>
-                         </form>
-                    </td>
-
-         </tr>
+                </tr>
          @endforeach
 
 
@@ -103,7 +100,7 @@ var data =$tr.children("td").map(function(){
 }).get();
 //console$()
 $('#id_delete').val(data[0]);
-$('#delete-model_form').attr('action','/presences-delete/'+data[0]);
+$('#delete-model_form').attr('action','/profs/presences-delete/'+data[0]);
 $('#deletemodalpop').modal('show');
 
 
