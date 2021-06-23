@@ -61,6 +61,6 @@ class SalleController extends Controller
             ->get();
 
         //Return the search view with the resluts compacted
-        return view('admin.salle.search', compact('salles'));
+        return view('admin.salle.salle_search', compact('salles'));
     }
 }

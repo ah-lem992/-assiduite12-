@@ -12,7 +12,7 @@ class Presence extends Model
         'prof_id',
         'id',
         'etud_id',
-
+        'groupe_id',
         'created_at',
         'updated_at',
     ];
@@ -24,6 +24,9 @@ class Presence extends Model
     }
     public function etudiants(){
         return $this->belongsTo('App\Etudiant','etud_id');
+    }
+    public function groupes(){
+        return $this->belongsTo('App\Groupe','groupe_id');
     }
 
 

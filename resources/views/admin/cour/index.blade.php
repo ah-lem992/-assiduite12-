@@ -44,11 +44,8 @@
                         {{session()->get('success')}}
                     </div>
                     @endif
-                  <h4 class="card-title  ">Les cours
-                    </h4>
-
-
-                    <a href="{{ url('cour/create') }}" class="btn btn-success"> ajouter</a>
+                  <h4 class="card-title  ">Les modules
+                    <a href="{{ url('cour/create') }}" class="btn btn-success"> ajouter</a></h4>
 
 
 
@@ -61,7 +58,7 @@
                <div class="input-group-prepend">
                  <span class="input-group-text"><i class="fas fa-search"></i></span>
                </div>
-               <input class="form-control" name="search" placeholder="tapez le nom de cour " type="text">
+               <input class="form-control" name="search" placeholder="tapez le nom du module " type="text">
              </div>
            </div>
            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -77,9 +74,9 @@
                       <thead class=" text-primary">
                    <tr>
                        <th>id </th>
-                       <th>Nom de module </th>
+                       <th> module </th>
                        <th>prof de module</th>
-                       <th>ajouter cour</th>
+                       <th>ajouter prof </th>
                        <th>supprimer</th>
                    </tr>
                 <body>

@@ -54,13 +54,13 @@
               <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
             <li class="nav-item">
               <a class="nav-link" href="/seance">
-                <i class="ni ni-tv-2 text-primary"></i>
+                <i class="ni ni-calendar-grid-58"></i>
                 <span class="nav-link-text">L'emploi du temps</span>
               </a>
             </li></li>
             <li class="nav-item">
                 <a class="nav-link" href="/presence">
-                  <i class="ni ni-tv-2 text-primary"></i>
+                  <i class="fa fa-check-square"></i>
                   <span class="nav-link-text">la présence  </span>
                 </a>
               </li>
@@ -71,6 +71,12 @@
                 <span class="nav-link-text">Promo</span>
               </a>
             </li>
+            <li class="{{'groupe' ==request()->path() ?'active': ''}}">
+                <a class="nav-link" href="/specialite">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                  <span class="nav-link-text">Spécialité</span>
+                </a>
+              </li>
             <li class="{{'groupe' ==request()->path() ?'active': ''}}">
                 <a class="nav-link" href="/groupe">
                     <i class="fa fa-list-alt" aria-hidden="true"></i>
@@ -85,7 +91,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/etudiant">
-                  <i class="fa fa-users"></i>
+                  <i class="fa fa-user"></i>
                   <span class="nav-link-text">les etudiants</span>
                 </a>
               </li>
@@ -100,7 +106,7 @@
             <li class="{{'role-register' == request()-> path() ?'active' : ''}}">
                 <li class="nav-item">
                   <a class="nav-link" href="/role-register">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
                     <span class="nav-link-text">Profile</span>
                   </a>
                 </li>
@@ -111,12 +117,7 @@
                     </a>
                   </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="register.html">
-                <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text"></span>
-              </a>
-            </li>
+
 
           </ul>
           <!-- Divider -->
@@ -136,20 +137,7 @@
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" type="get" action="{{url('/search')}}" method="GET">
-             {{ csrf_field() }}
-            <div class="form-group mb-0">
-              <div class="input-group input-group-alternative input-group-merge">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-search"></i></span>
-                </div>
-                <input class="form-control" name="search" placeholder="chercher " type="text">
-              </div>
-            </div>
-            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </form>
+         
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
@@ -169,7 +157,7 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="ni ni-bell-55"></i>
+
               </a>
               <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
                 <!-- Dropdown header -->
@@ -280,48 +268,9 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="ni ni-ungroup"></i>
+
               </a>
-              <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
-                <div class="row shortcuts px-4">
-                  <a href="#!" class="col-4 shortcut-item">
-                    <span class="shortcut-media avatar rounded-circle bg-gradient-red">
-                      <i class="ni ni-calendar-grid-58"></i>
-                    </span>
-                    <small>Calendar</small>
-                  </a>
-                  <a href="#!" class="col-4 shortcut-item">
-                    <span class="shortcut-media avatar rounded-circle bg-gradient-orange">
-                      <i class="ni ni-email-83"></i>
-                    </span>
-                    <small>Email</small>
-                  </a>
-                  <a href="#!" class="col-4 shortcut-item">
-                    <span class="shortcut-media avatar rounded-circle bg-gradient-info">
-                      <i class="ni ni-credit-card"></i>
-                    </span>
-                    <small>Payments</small>
-                  </a>
-                  <a href="#!" class="col-4 shortcut-item">
-                    <span class="shortcut-media avatar rounded-circle bg-gradient-green">
-                      <i class="ni ni-books"></i>
-                    </span>
-                    <small>Reports</small>
-                  </a>
-                  <a href="#!" class="col-4 shortcut-item">
-                    <span class="shortcut-media avatar rounded-circle bg-gradient-purple">
-                      <i class="ni ni-pin-3"></i>
-                    </span>
-                    <small>Maps</small>
-                  </a>
-                  <a href="#!" class="col-4 shortcut-item">
-                    <span class="shortcut-media avatar rounded-circle bg-gradient-yellow">
-                      <i class="ni ni-basket"></i>
-                    </span>
-                    <small>Shop</small>
-                  </a>
-                </div>
-              </div>
+
             </li>
           </ul>
           <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">

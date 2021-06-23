@@ -15,7 +15,7 @@
     @csrf
 
     <div class="form-group">
-        <label for="exampleFormControlSelect1" >selectionez seance </label>
+        <label for="exampleFormControlSelect1" >  Sélecionnez presence </label>
         <select class="form-control" name="id" id="exampleFormControlSelect1">
             @foreach ( $seances as $seance )
 
@@ -29,7 +29,7 @@
         @endif
       </div>
       <div class="form-group">
-        <label for="exampleFormControlSelect1" >selectionez prof </label>
+        <label for="exampleFormControlSelect1" >  Sélecionnez prof </label>
         <select class="form-control" name="prof_id" id="exampleFormControlSelect1">
             @foreach ( $profs as $prof )
 
@@ -45,7 +45,7 @@
       </div>
 
       <div class="form-group">
-        <label for="exampleFormControlSelect1" >selectionez etudiant</label>
+        <label for="exampleFormControlSelect1" >  Sélecionnez etudiant</label>
         <select class="form-control" name="etud_id" id="exampleFormControlSelect1">
             @foreach ( $etudiants as $etudiant )
 

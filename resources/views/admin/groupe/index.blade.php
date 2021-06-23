@@ -44,11 +44,11 @@
                         {{session()->get('success')}}
                     </div>
                     @endif
-                  <h4 class="card-title  ">Les Groupes
+                  <h4 class="card-title  ">Les Groupes  <a href="{{ url('groupe/create') }}" class="btn btn-success"> nouveau groupe</a>
                     </h4>
 
 
-                    <a href="{{ url('groupe/create') }}" class="btn btn-success"> nouveau groupe</a>
+
 
 
 
@@ -75,9 +75,11 @@
                     <table  id= "dataTable" class="table">
                       <thead class=" text-primary">
                    <tr>
-                       <th>id </th>
+
                        <th>groupe </th>
                        <th>promo </th>
+                       <th>Specialite</th>
+
                        <th>Editer</th>
                        <th>supprimer</th>
                    </tr>
@@ -86,10 +88,10 @@
                     @foreach($groupes as $groupe )
 
                 <tr>
-
-                    <td> {{$groupe -> groupe_id}}</td>
-                    <td>{{$groupe -> groupe}}</td>
+                 
+                    <td>{{$groupe ->groupe}}</td>
                     <td>{{$groupe->promo->annee}}</td>
+                    <td>{{$groupe->specialite->specialite}}</td>
                             <td>
                              <a href="{{ url('groupe/'.$groupe->groupe_id) }}" class="btn btn-primary">editer </a>
                             </td>

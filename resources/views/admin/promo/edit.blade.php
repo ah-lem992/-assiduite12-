@@ -1,56 +1,59 @@
 @extends('layouts.master')
 @section('title')
-            dashboard attendance
+    dashboard attendance
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Les promos</h4>
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Les promos</h4>
 
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                <body>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
 
-                    <form  action="{{url('promo/'.$promo->id)}}" method="post"  >
+                                    <body>
 
-                        {{ csrf_field() }}
-                       <input type="hidden" name="_method" value="PUT">
-                        <br/>
-                        <div class="form-group">
-                            <label for="">Année </label>
-                            <input type="text" name="annee" class="form-control" value="{{$promo-> annee}}" value="{{ old('annee') }}">
+                                        <form action="{{ url('promo/' . $promo->id) }}" method="post">
 
-                            @if($errors->get('annee'))
-                            @foreach ($errors ->get('annee') as $message )
-                                <li> {{$message}}</li>
-                            @endforeach
-                            @endif
-                          </div>
-                        <br/>
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="_method" value="PUT">
+                                            <br />
+                                            <div class="form-group">
+                                                <label for="">Année </label>
+                                                <input type="text" name="annee" class="form-control"
+                                                    value="{{ $promo->annee }}" value="{{ old('annee') }}">
 
-                           <div class="form-group">
+                                                @if ($errors->get('annee'))
+                                                    @foreach ($errors->get('annee') as $message)
+                                                        <li> {{ $message }}</li>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                            <br />
 
-                            <input type="submit"  class="form-control btn btn-primary" value="modifier  ">
+                                            <div class="form-group">
+
+                                                <input type="submit" class="form-control btn btn-primary"
+                                                    value="modifier  ">
+                                            </div>
+                                        </form>
+
+                                    </body>
+                                </table>
+
+                            </div>
+
                         </div>
-                    </form>
-
-                </body>
-            </table>
-
-                  </div>
-
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-            </div>
-    </div>
-</div>
 
 
 

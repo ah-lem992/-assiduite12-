@@ -19,6 +19,9 @@ class Seance extends Model
         'end_time',
         'created_at',
         'updated_at',
+        'promo_id',
+        'groupe_id',
+        'specialite_id',
     ];
     protected $dates = ['deleted_at'];
     public function cour()
@@ -37,6 +40,15 @@ class Seance extends Model
     {
         return $this->belongsTo('App\Groupe','groupe_id');
     }
+    public function promo()
+    {
+        return $this->hasMany('App\Promo','promo_id');
+    }
+    public function specialite()
+    {
+        return $this->belongsTo('App\Specialite','speacialite_id');
+    }
+
 
 
 }

@@ -57,7 +57,7 @@
              <th>seance</th>
              <th>etudiant</th>
 
-             <th>editer /supprimer</th>
+             
          </tr>
       <body>
                    @foreach ($presences as $presence )
@@ -66,13 +66,10 @@
 
                     <td> {{$presence->prof_id}} </td>
                     <td>{{$presence->id}}</td>
-                    <td>{{$presence->etud_id}}</td>
+                    <td>{{$presence->etudiants->nom}}</td>
+
                     <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
-                    <td>
-                        <a href="{{ url('presence/'.$presence->presence_id) }}" class="btn btn-primary">mod</a>
-                        <button type="submit" class="btn btn-danger deletebtn">Supp</button>
-                         </form>
-                    </td>
+
 
          </tr>
          @endforeach

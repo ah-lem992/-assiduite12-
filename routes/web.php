@@ -36,12 +36,25 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     #route pour promo
 
     Route::get('/promo', 'Admin\PromoController@index');
-    Route::get('/search', 'Admin\PromoController@search')->name('search');
+    Route::get('/promo-show/{id}', 'Admin\PromoController@show');
+    Route::get('/promo_seach', 'Admin\PromoController@search')->name('search');
     Route::get('/promo/create', 'Admin\PromoController@create');
     Route::post('/promo', 'Admin\PromoController@store');
     Route::get('/promo/{id}', 'Admin\PromoController@edit');
     Route::put('/promo/{id}', 'Admin\PromoController@update');
     Route::get('promo-delete/{id}', 'Admin\PromoController@destroy');
+
+#route pour les specialités
+
+    Route::get('/specialite', 'Admin\SpecialiteController@index');
+    Route::get('/search_specialite', 'Admin\SpecialiteController@search')->name('search');
+    Route::get('/specialite/create', 'Admin\SpecialiteController@create');
+    Route::post('/specialite', 'Admin\SpecialiteController@store');
+    Route::get('/specialite/{specialite_id}', 'Admin\SpecialiteController@edit');
+    Route::put('/specialite/{specialite_id}', 'Admin\SpecialiteController@update');
+    Route::get('specialite-delete/{specialite_id}', 'Admin\SpecialiteController@destroy');
+
+
 
 
     //route pour les groupes
@@ -85,6 +98,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('salle-delete/{salle_id}', 'Admin\SalleController@destroy');
     //pour lesson
     Route::get('/seance', 'Admin\SeanceController@index');
+    Route::get('/seance_search', 'Admin\SeanceController@search')->name('search');
     Route::get('/seance/create', 'Admin\SeanceController@create');
     Route::post('/seance', 'Admin\SeanceController@store');
     Route::get('/seance/{id}', 'Admin\SeanceController@edit');
@@ -93,6 +107,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     //route pour l'etudiant
     Route::get('/etudiant', 'Admin\EtudiantController@index');
+    Route::get('/etudiant_search', 'Admin\EtudiantController@search')->name('search');
     Route::get('/etudiant/create', 'Admin\EtudiantController@create');
     Route::post('/etudiant', 'Admin\EtudiantController@store');
     Route::get('/etudiant/{etud_id}', 'Admin\EtudiantController@edit');
@@ -101,6 +116,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     //route pour presence
     Route::get('/presence', 'Admin\PresenceController@index');
+    Route::get('/presence_search', 'Admin\PresenceController@search')->name('search');;
     Route::get('/presence/create', 'Admin\PresenceController@create');
     Route::post('/presence', 'Admin\PresenceController@store');
     Route::get('/presence/{presence_id}', 'Admin\PresenceController@edit');
@@ -125,4 +141,12 @@ Route::group(['middleware' => ['auth', 'prof']], function () {
     Route::get('/profs/presences/{presence_id}', 'Prof\PresenceController@edit');
     Route::put('/profs/presences/{presence_id}', 'Prof\PresenceController@update');
     Route::get('/profs/presences-delete/{presence_id}', 'Prof\PresenceController@destroy');
+
+
+
+    //profile*
+   /* Route::get('/profs/profiles/{prof_id}', 'Prof\ProfileController@edit');
+    Route::post('/profs/profiles', 'Prof\ProfileController@store');
+    Route::post('/profs/profiles/{prof_id}', 'Prof\ProfileController@update');*/
+
 });

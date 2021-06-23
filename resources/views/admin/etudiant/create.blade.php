@@ -14,13 +14,30 @@
             <form  action="{{url('/etudiant')}}" method="post" >
                @csrf
                <div class="form-group">
-                <label for="exampleFormControlSelect1" >selectionez groupe</label>
-                <select class="form-control" name="groupe_id" id="exampleFormControlSelect1">
-                    @foreach ( $groupes as $groupe )
-                  <option value="{{$groupe->groupe_id}}">{{$groupe->groupe}}</option>
+                <label for="exampleFormControlSelect1" >sélectionnez promo</label>
+                <select class="form-control" name="promo_id" id="exampleFormControlSelect1">
+                    @foreach ( $promos as $promo )
+                  <option value="{{$promo->promo_id}}">{{$promo->annee}}</option>
                      @endforeach
                 </select>
               </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1" >sélectionnez Specialité</label>
+            <select class="form-control" name="specialite_id" id="exampleFormControlSelect1">
+                @foreach ( $specialites as $specialite )
+              <option value="{{$specialite->specialite_id}}">{{$specialite->specialite}}</option>
+                 @endforeach
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1" >sélectionnez groupe</label>
+            <select class="form-control" name="groupe_id" id="exampleFormControlSelect1">
+                @foreach ( $groupes as $groupe )
+              <option value="{{$groupe->groupe_id}}">{{$groupe->groupe}}</option>
+                 @endforeach
+            </select>
+          </div>
 
                 <div class="form-group">
                     <label >Nom  :</label>

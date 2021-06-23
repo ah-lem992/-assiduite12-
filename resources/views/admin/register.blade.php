@@ -45,7 +45,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                  <p class="card-category"> Here is a subtitle for this table</p>
+                  <p class="card-category"> </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">

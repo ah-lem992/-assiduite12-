@@ -11,18 +11,39 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">
 
-            <form  action="{{url('etudiant/'.$etudiant->id)}}" method="post" >
+            <form  action="{{url('etudiant/'.$etudiant->etud_id)}}" method="POST" >
+
                 {{ csrf_field() }}
                        <input type="hidden" name="_method" value="PUT">
-               <div class="form-group">
-                <label for="exampleFormControlSelect1" >selectionez groupe</label>
-                <select class="form-control" name="groupe_id" id="exampleFormControlSelect1">
+                <br/>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1" >Sélectionnez promo</label>
+                    <select class="form-control" name="promo_id"value="{{ old('promo_id') }}"  id="exampleFormControlSelect1">
+                        @foreach ( $promos as $promo )
+
+                      <option value="{{$promo->promo_id}}">{{$promo->annee}}</option>
+                         @endforeach
+                    </select>
+                  </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlSelect1" >Sélectionnez Specialité</label>
+                <select class="form-control" name="specialite_id" value="{{ old('specialite_id') }}" id="exampleFormControlSelect1">
+                    @foreach ( $specialites as $specialite )
+                  <option value="{{$specialite->specialite_id}}">{{$specialite->specialite}}</option>
+                     @endforeach
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1" >Sélectionnez groupe</label>
+                <select class="form-control" name="groupe_id"value="{{ old('groupe_id') }}"  id="exampleFormControlSelect1">
                     @foreach ( $groupes as $groupe )
 
                   <option value="{{$groupe->groupe_id}}">{{$groupe->groupe}}</option>
                      @endforeach
                 </select>
               </div>
+
 
                 <div class="form-group">
                     <label >Nom  :</label>

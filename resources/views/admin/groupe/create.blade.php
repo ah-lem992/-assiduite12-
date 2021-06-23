@@ -18,7 +18,7 @@
       <input type="text" name="groupe" class="form-control" id="exampleFormControlInput1" placeholder="taper le groupe">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1" >selectionez promo</label>
+      <label for="exampleFormControlSelect1" >sélectionnez promo</label>
       <select class="form-control" name="promo_id" id="exampleFormControlSelect1">
           @foreach ( $promos as $promo )
 
@@ -26,6 +26,16 @@
            @endforeach
       </select>
     </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1" >sélectionnez spécialité</label>
+        <select class="form-control" name="specialite_id" id="exampleFormControlSelect1">
+            @foreach ( $specialites as $specialite )
+
+          <option value="{{$specialite->specialite_id}}">{{$specialite->specialite}}</option>
+             @endforeach
+        </select>
+      </div>
+
     <div class="form-group">
     <input type="submit"  class="form-control btn btn-primary" value="Enregistrer ">
     </div>
