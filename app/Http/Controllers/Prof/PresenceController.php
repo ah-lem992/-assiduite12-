@@ -11,6 +11,8 @@ use App\Cour;
 use App\Etudiant;
 use App\Groupe;
 use App\Http\Requests\presenceRequest;
+use App\Promo;
+use App\Specialite;
 
 class PresenceController extends Controller
 {
@@ -27,11 +29,13 @@ class PresenceController extends Controller
     {
         //   $etudiants = Etudiant::all();
 
+        $promos = Promo::all();
+        $specialites =Specialite::all();
         $groupes = Groupe::all();
         $seances = Seance::all();
         $profs = Prof::all();
         $etudiants = Etudiant::all();
-        return view('profeseur.presences.create', compact( 'groupes','etudiants', 'profs', 'seances'));
+        return view('profeseur.presences.create', compact( 'groupes','etudiants', 'profs', 'seances','promos','specialites'));
     }
     public function store(presenceRequest $request)
     {
@@ -39,6 +43,8 @@ class PresenceController extends Controller
            foreach($request['etudiants_ids'] as $shtid) {
             $presence = Presence::create([
                 'prof_id' => \Auth::id(),
+                'promo_id' => $request->get('promo_id'),
+                'specialite_id'=>$request->get('specialite_id'),
                 'id' => $request->get('id'),
                 'etud_id' => $shtid
             ]);
@@ -56,6 +62,9 @@ class PresenceController extends Controller
         $etudiants = Etudiant::all();
         $seances = Seance::all();
         $groupes= Groupe::all();
+        $promos = Promo::all();
+        $specialite =Specialite::all();
+
 
         return view('profeseur.presences.edit', compact('seances', 'etudiants', 'presence','groupes'));
     }

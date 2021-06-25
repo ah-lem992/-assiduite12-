@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">
+
             <!--deleting Modal -->
             <div class="modal fade" id="deletemodalpop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -28,7 +28,7 @@
                                 <h4> vous etes sur de cette suppresion</h4>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuuler</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                                 <button type="submit" class="btn btn-danger">oui , je confirme</button>
                             </div>
                         </form>
@@ -42,7 +42,7 @@
             <div class="card">
                 <div class="card-header card-header-primary">
                     <h4 class="card-title ">la présence
-                        <a href="{{ url('/profs/presences/create') }}" class="btn btn-success"> Nouveau</a>
+                        <a href="{{ url('/profs/presences/create') }}" class="btn btn-success"> Ajouter</a>
                     </h4>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -50,8 +50,9 @@
                                 <thead class=" text-primary">
                                     <tr>
                                         <th>id </th>
+                                        <th>promo</th>
+                                        <th>spécialité</th>
                                         <th>groupe</th>
-
                                         <th>seance</th>
                                         <th>heure entré</th>
                                         <th>heure sortie</th>
@@ -64,6 +65,8 @@
                                         @foreach ($presences as $presence)
                                             <tr>
                                                 <td>{{ $presence->presence_id }}</td>
+                                                <td>{{$presence->promo_id}}</td>
+                                                <td>{{$presence->specialite_id}}</td>
                                                 <th>{{$presence->groupe_id}}</th>
                                                 <td>{{ $presence->seances->day}}</td>
                                                 <td>{{ $presence->seances->start_time }}</td>
@@ -72,8 +75,8 @@
                                                 <!--  <a href="" class="btn btn-success"> nouvelle année</a>-->
                                                 <td>
                                                     <a href="{{ url('/profs/presences/' . $presence->presence_id) }}"
-                                                        class="btn btn-primary">mod</a>
-                                                    <button type="submit" class="btn btn-danger deletebtn">Supp</button>
+                                                        class="btn btn-primary">editer</a>
+                                                    <button type="submit" class="btn btn-danger deletebtn">Supprimer</button>
                                                     </form>
                                                 </td>
 

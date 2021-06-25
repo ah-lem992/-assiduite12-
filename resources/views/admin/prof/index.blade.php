@@ -46,7 +46,7 @@
                     </div>
                     @endif
                   <h4 class="card-title ">Les professeurs
-                               <a href="{{ url('prof/create') }}" class="btn btn-success"> nouveau prof</a>
+                               <a href="{{ url('prof/create') }}" class="btn btn-success"> nouveau </a>
                     </h4>
 
                       <!-- Search form -->
@@ -57,7 +57,7 @@
                <div class="input-group-prepend">
                  <span class="input-group-text"><i class="fas fa-search"></i></span>
                </div>
-               <input class="form-control" name="search" placeholder="tapez groupe num° " type="text">
+               <input class="form-control" name="search" placeholder="tapez le nom " type="text">
              </div>
            </div>
            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -71,7 +71,7 @@
                     <table  id= "dataTable" class="table">
                       <thead class=" text-primary">
                    <tr>
-                       <th>id </th>
+
                        <th>nom </th>
                        <th>grade </th>
                        <th>module </th>
@@ -82,7 +82,7 @@
                     @foreach($profs as $prof)
 
                 <tr>
-                            <td>{{$prof->prof_id}}<br></td>
+                           
                             <td>{{$prof->nom}}<br></td>
                             <td>{{$prof->grade}}<br></td>
                             <td>

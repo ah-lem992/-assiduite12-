@@ -86,13 +86,13 @@
             <li class="nav-item">
               <a class="nav-link" href="/prof">
                 <i class="fa fa-users" aria-hidden="true"></i>
-                <span class="nav-link-text">Les proffeseurs</span>
+                <span class="nav-link-text">Les professeurs</span>
               </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/etudiant">
                   <i class="fa fa-user"></i>
-                  <span class="nav-link-text">les etudiants</span>
+                  <span class="nav-link-text">les étudiants</span>
                 </a>
               </li>
 
@@ -137,7 +137,7 @@
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
-         
+
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">

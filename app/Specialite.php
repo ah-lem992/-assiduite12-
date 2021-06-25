@@ -32,4 +32,8 @@ class Specialite extends Model
     {
         return $this->hasMany('App\Seance', 'id');
     }
+    public function presence()
+    {
+        return $this->hasMany('App\Presence', 'presence_id');
+    }
 }
