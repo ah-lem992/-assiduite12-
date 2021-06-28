@@ -57,7 +57,7 @@
              <th>seance</th>
              <th>etudiant</th>
 
-             
+
          </tr>
       <body>
                    @foreach ($presences as $presence )

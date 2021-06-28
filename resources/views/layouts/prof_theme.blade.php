@@ -366,13 +366,12 @@
                             <a href="" class="nav-link" target="_blank"> ah-lem992</a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
-                                Us</a>
+                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank"></a>
                         </li>
 
                         <li class="nav-item">
                             <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
-                                class="nav-link" target="_blank">MIT License</a>
+                                class="nav-link" target="_blank"></a>
                         </li>
                     </ul>
                 </div>

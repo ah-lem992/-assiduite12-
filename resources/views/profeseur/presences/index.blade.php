@@ -25,7 +25,7 @@
 
                             <div class="modal-body">
                                 <input type="hidden" id="id_delete">
-                                <h4> vous etes sur de cette suppresion</h4>
+                                <h4> vous etes sur de cette suppression</h4>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -65,8 +65,8 @@
                                         @foreach ($presences as $presence)
                                             <tr>
                                                 <td>{{ $presence->presence_id }}</td>
-                                                <td>{{$presence->promo_id}}</td>
-                                                <td>{{$presence->specialite_id}}</td>
+                                                <td>{{$presence->promo->annee}}</td>
+                                                <td>{{$presence->specialite->specialite}}</td>
                                                 <th>{{$presence->groupe_id}}</th>
                                                 <td>{{ $presence->seances->day}}</td>
                                                 <td>{{ $presence->seances->start_time }}</td>

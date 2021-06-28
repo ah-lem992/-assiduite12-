@@ -17,7 +17,7 @@ class GroupeController extends Controller
     {
        // $listgroupe = DB::table('groupes')->paginate(3);
         $listgroupe = Groupe::paginate(6);
-           $promos = Promo::all();
+           $promos = Promo::all()->groupBy('promo_id');
         $specialites =Specialite::all();
         return view('admin.groupe.index', ['groupes' => $listgroupe]);
     }
@@ -74,11 +74,11 @@ class GroupeController extends Controller
     public function search(Request $request)
     {
         // Get the search value from the request
-        $groupe_search = $request->input('search');
+        $search = $request->input('search');
 
         // Search in the title and body columns from the posts table
         $groupes = Groupe::query()
-            ->where('groupe', 'LIKE', "%{$groupe_search}%")
+            ->where('groupe', 'LIKE', "%{$search}%")
             ->get();
 
         //Return the search view with the resluts compacted

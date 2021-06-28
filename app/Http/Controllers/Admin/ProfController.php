@@ -63,7 +63,7 @@ class ProfController extends Controller
 
         foreach ($request['courses_ids'] as $cour_id){
 
-            $prof->cours()-> syncWithoutDetaching($request->courses_ids);
+            $prof->cours()->syncWithoutDetaching($request->courses_ids);
         }
         }
 
@@ -85,6 +85,7 @@ class ProfController extends Controller
         // Search in the title and body columns from the posts table
         $profs = Prof::query()
             ->where('nom', 'LIKE', "%{$search}%")
+            ->orWhere('grade', 'LIKE', "%{$search}%")
             ->get();
 
         //Return the search view with the resluts compacted

@@ -85,7 +85,7 @@
                                     <tr>
                                         <td>{{ $promo->id }} <br></td>
                                         <td>{{ $promo->annee }}<br></td>
-                                        <td><a href="{{url('promo-show',$promo->id)}}" type="button" class="btn btn-light">Voir les groupes </a></td>
+                                        <td><a href="{{ url('groupe') }}" type="button" class="btn btn-light">Voir les groupes </a></td>
 
                                         <td>
                                             <a href="{{ url('promo/' . $promo->id) }}" class="btn btn-primary">editer </a>

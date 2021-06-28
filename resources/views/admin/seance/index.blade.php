@@ -67,7 +67,7 @@
           <table  id= "dataTable" class="table">
             <thead class=" text-primary">
          <tr>
-          
+
              <th>promo</th>
              <th>specialité</th>
              <th>groupe</th>
